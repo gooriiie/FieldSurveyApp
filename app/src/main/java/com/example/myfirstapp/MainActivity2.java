@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ public class MainActivity2 extends AppCompatActivity {
     String choice_city = "";
     String choice_region = "";
     String choice_dong = "";
+    String detail_address = "";
     String choice_address;
 
 
@@ -111,6 +113,9 @@ public class MainActivity2 extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                detail_address = ((EditText) findViewById(R.id.detailAddress)).getText().toString() ;
+                choice_address = choice_city + " " + choice_region + " " + choice_dong + " " + detail_address;
+                
                 makeText(getApplicationContext(), choice_address, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
                 intent.putExtra("address", choice_address);

@@ -2,6 +2,7 @@ package com.example.myfirstapp;
 
 import static android.widget.Toast.makeText;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,7 +13,22 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+
+import org.w3c.dom.Text;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity4 extends AppCompatActivity implements View.OnClickListener {
+
+    private FirebaseFirestore db;
+
+    String getAddress;
+    String getRoom;
 
     Button btn_switch1minus;
     Button btn_switch1plus;
@@ -44,17 +60,21 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
     Button btn_scrollTo_socketLine;
     Button btn_scrollTo_lightLine;
 
+    Button btn_add;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
 
+        db = FirebaseFirestore.getInstance();
+
         Intent intent = getIntent();
 
         TextView addressroom = (TextView) findViewById(R.id.addressroom);
 
-        String getAddress = intent.getStringExtra("address");
-        String getRoom = intent.getStringExtra("room");
+        getAddress = intent.getStringExtra("address");
+        getRoom = intent.getStringExtra("room");
         String getAddressRoom = getAddress + "/" + getRoom;
 
         addressroom.setText(getAddressRoom);
@@ -89,6 +109,8 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
         btn_scrollTo_sensorLine = (Button) findViewById(R.id.button_scrollTo_sensorLine);
         btn_scrollTo_lightLine = (Button) findViewById(R.id.button_scrollTo_lightLine);
 
+        btn_add = (Button) findViewById(R.id.button_add);
+
         btn_switch1minus.setOnClickListener(this);
         btn_switch1plus.setOnClickListener(this);
         btn_switch2minus.setOnClickListener(this);
@@ -119,11 +141,20 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
         btn_scrollTo_sensorLine.setOnClickListener(this);
         btn_scrollTo_lightLine.setOnClickListener(this);
 
+        btn_add.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View view) {
         ScrollView sv = (ScrollView) findViewById(R.id.scroll);
+
+        TextView switch1 = (TextView) findViewById(R.id.switch1);
+        TextView switch2 = (TextView) findViewById(R.id.switch2);
+        TextView switch3 = (TextView) findViewById(R.id.switch3);
+        TextView switch4 = (TextView) findViewById(R.id.switch4);
+        TextView switch5 = (TextView) findViewById(R.id.switch5);
+        TextView switch6 = (TextView) findViewById(R.id.switch6);
 
         TextView switch1count = (TextView) findViewById(R.id.switch1count);
         TextView switch2count = (TextView) findViewById(R.id.switch2count);
@@ -354,6 +385,36 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
             case R.id.button_scrollTo_lightLine:
                 sv.scrollTo(0, 1450);
                 break;
+
+            case R.id.button_add:
+                Map<String, Object> room = new HashMap<>();
+
+                Map<String, Integer> part = new HashMap<>();
+                part.put(switch1.getText().toString(), Integer.parseInt(switch1count.getText().toString()));
+                part.put(switch2.getText().toString(), Integer.parseInt(switch2count.getText().toString()));
+                part.put(switch3.getText().toString(), Integer.parseInt(switch3count.getText().toString()));
+                part.put(switch4.getText().toString(), Integer.parseInt(switch4count.getText().toString()));
+
+                room.put(getRoom, part);
+
+                db.collection("addresses").document(getAddress)
+                        .set(room, SetOptions.merge())
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                makeText(getApplicationContext(), getRoom +"을 추가했습니다.", Toast.LENGTH_SHORT).show();
+
+                                // intent activity3 추가
+                                Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
+                                startActivity(intent);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                makeText(getApplicationContext(), "추가하는데 실패했습니다.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
         }
     }
 }
