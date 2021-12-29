@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sinner_city">
+        <item>선택</item>
+        <item>대전광역시</item>
+        <item>세종특별자치시</item>
+        <item>계룡시</item>
+    </string-array>
+    <string-array name="spinner_city_daejeon">
+        <item>선택</item>
+        <item>서구</item>
+        <item>유성구</item>
+        <item>중구</item>
+        <item>동구</item>
+        <item>대덕구</item>
+    </string-array>
+    <string-array name="spinner_city_daejeon_seogu">
+        <item>선택</item>
+        <item>가수원동</item>
+        <item>가장동</item>
+        <item>갈마1동</item>
+        <item>갈마2동</item>
+        <item>관저1동</item>
+        <item>관저2동</item>
+        <item>괴정동</item>
+        <item>기성동</item>
+        <item>내동</item>
+        <item>도마1동</item>
+        <item>도마2동</item>
+        <item>둔산1동</item>
+        <item>둔산2동</item>
+        <item>둔산3동</item>
+        <item>만년동</item>
+        <item>변동</item>
+        <item>복수동</item>
+        <item>용문동</item>
+        <item>월평1동</item>
+        <item>월평2동</item>
+        <item>월평3동</item>
+        <item>정림동</item>
+        <item>탄방동</item>
+    </string-array>
+    <string-array name="spinner_city_daejeon_yuseong">
+        <item>선택</item>
+        <item>관평동</item>
+        <item>구즉동</item>
+        <item>노은1동</item>
+        <item>노은2동</item>
+        <item>노은3동</item>
+        <item>상대동</item>
+        <item>신성동</item>
+        <item>온천1동</item>
+        <item>온천2동</item>
+        <item>원신흥동</item>
+        <item>전민동</item>
+        <item>진잠동</item>
+        <item>학하동</item>
+    </string-array>
+    <string-array name="spinner_city_daejeon_donggu">
+        <item>선택</item>
+        <item>가양1동</item>
+        <item>가양2동</item>
+        <item>대동</item>
+        <item>대청동</item>
+        <item>산내동</item>
+        <item>삼성동</item>
+        <item>성남동</item>
+        <item>신인동</item>
+        <item>용운동</item>
+        <item>용전동</item>
+        <item>자양동</item>
+        <item>중앙동</item>
+        <item>판암1동</item>
+        <item>판암2동</item>
+        <item>홍도동</item>
+        <item>효동</item>
+    </string-array>
+    <string-array name="spinner_city_daejeon_daedukgu">
+        <item>선택</item>
+        <item>대화동</item>
+        <item>덕암동</item>
+        <item>목상동</item>
+        <item>법1동</item>
+        <item>법2동</item>
+        <item>비래동</item>
+        <item>석봉동</item>
+        <item>송촌동</item>
+        <item>신탄진동</item>
+        <item>오정동</item>
+        <item>중리동</item>
+        <item>회덕동</item>
+    </string-array>
+    <string-array name="spinner_city_daejeon_junggu">
+        <item>선택</item>
+        <item>대사동</item>
+        <item>대흥동</item>
+        <item>목동</item>
+        <item>문창동</item>
+        <item>문화1동</item>
+        <item>문화2동</item>
+        <item>부사동</item>
+        <item>산성동</item>
+        <item>석교동</item>
+        <item>오류동</item>
+        <item>용두동</item>
+        <item>유천1동</item>
+        <item>유천2동</item>
+        <item>은행선화동</item>
+        <item>중촌동</item>
+        <item>태평1동</item>
+        <item>태평2동</item>
+    </string-array>
+    <string-array name="spinner_city_default">
+        <item>선택 없음</item>
+    </string-array>
+</resources>

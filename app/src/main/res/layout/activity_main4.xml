@@ -1,0 +1,807 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity4">
+
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/menu_addspace"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/addressroom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/addressroom"
+        tools:layout_editor_absoluteX="0dp">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="35dp"
+            android:gravity="center_vertical"
+            android:text="이동" />
+
+        <Button
+            android:id="@+id/button_scrollTo_switchLine"
+            android:layout_width="75dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="0"
+            android:text="스위치"
+            app:backgroundTint="@color/teal_200" />
+
+        <Button
+            android:id="@+id/button_scrollTo_socketLine"
+            android:layout_width="75dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0"
+            android:text="콘센트"
+            app:backgroundTint="@color/teal_500" />
+
+        <Button
+            android:id="@+id/button_scrollTo_sensorLine"
+            android:layout_width="75dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0"
+            android:text="감지기"
+            app:backgroundTint="@color/teal_700" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:id="@+id/button_scrollTo_lightLine"
+            android:layout_width="75dp"
+            android:layout_height="40dp"
+            android:layout_gravity="top"
+            android:layout_marginLeft="81dp"
+            android:layout_weight="0"
+            android:text="조명"
+            app:backgroundTint="@color/ultra_marine" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:layout_editor_absoluteX="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/switchLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="스위치"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:background="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/switch1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="15dp"
+                        android:text="스위치 1구" />
+
+                    <Button
+                        android:id="@+id/button_switch1minus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="-"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/switch1count"
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="15dp"
+                        android:text="0" />
+
+                    <Button
+                        android:id="@+id/button_switch1plus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="+"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/switch2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="15dp"
+                        android:text="스위치 2구" />
+
+                    <Button
+                        android:id="@+id/button_switch2minus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="-"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/switch2count"
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="15dp"
+                        android:text="0" />
+
+                    <Button
+                        android:id="@+id/button_switch2plus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="+"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/switch3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="15dp"
+                        android:text="스위치 3구" />
+
+                    <Button
+                        android:id="@+id/button_switch3minus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="-"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/switch3count"
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="15dp"
+                        android:text="0" />
+
+                    <Button
+                        android:id="@+id/button_switch3plus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="+"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/switch4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="15dp"
+                        android:text="스위치 4구" />
+
+                    <Button
+                        android:id="@+id/button_switch4minus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="-"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/switch4count"
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="15dp"
+                        android:text="0" />
+
+                    <Button
+                        android:id="@+id/button_switch4plus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="+"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/switch5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="15dp"
+                        android:text="스위치 5구" />
+
+                    <Button
+                        android:id="@+id/button_switch5minus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="-"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/switch5count"
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="15dp"
+                        android:text="0" />
+
+                    <Button
+                        android:id="@+id/button_switch5plus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="+"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/switch6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="15dp"
+                        android:text="스위치 6구" />
+
+                    <Button
+                        android:id="@+id/button_switch6minus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="-"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/switch6count"
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="15dp"
+                        android:text="0" />
+
+                    <Button
+                        android:id="@+id/button_switch6plus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="+"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/socketLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="콘센트"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:background="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/socket1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="15dp"
+                        android:text="콘센트 1구" />
+
+                    <Button
+                        android:id="@+id/button_socket1minus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="-"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/socket1count"
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="15dp"
+                        android:text="0" />
+
+                    <Button
+                        android:id="@+id/button_socket1plus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="+"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/socket2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="15dp"
+                        android:text="콘센트 2구" />
+
+                    <Button
+                        android:id="@+id/button_socket2minus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="-"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/socket2count"
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="15dp"
+                        android:text="0" />
+
+                    <Button
+                        android:id="@+id/button_socket2plus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="+"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/socket4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="15dp"
+                        android:text="콘센트 4구" />
+
+                    <Button
+                        android:id="@+id/button_socket4minus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="-"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/socket4count"
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="15dp"
+                        android:text="0" />
+
+                    <Button
+                        android:id="@+id/button_socket4plus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="+"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/sensorLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="감지기"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:background="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/sonsor1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="15dp"
+                        android:text="정온식 감지기" />
+
+                    <Button
+                        android:id="@+id/button_sensor1minus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="-"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/sensor1count"
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="15dp"
+                        android:text="0" />
+
+                    <Button
+                        android:id="@+id/button_sensor1plus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="+"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/sensor2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="15dp"
+                        android:text="광전식 감지기" />
+
+                    <Button
+                        android:id="@+id/button_sensor2minus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="-"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/sensor2count"
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="15dp"
+                        android:text="0" />
+
+                    <Button
+                        android:id="@+id/button_sensor2plus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="+"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+                </LinearLayout>
+            </LinearLayout>
+
+            // 조명 부분
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/lightLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="조명"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:background="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/mainLight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="15dp"
+                        android:text="메인조명" />
+
+                    <Button
+                        android:id="@+id/button_mainLightminus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="-"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/mainLightcount"
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="15dp"
+                        android:text="0" />
+
+                    <Button
+                        android:id="@+id/button_mainLightplus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="+"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/subLight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="15dp"
+                        android:text="서브조명" />
+
+                    <Button
+                        android:id="@+id/button_subLightminus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="-"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+
+                    <TextView
+                        android:id="@+id/subLightcount"
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="15dp"
+                        android:text="0" />
+
+                    <Button
+                        android:id="@+id/button_subLightplus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_weight="0"
+                        android:text="+"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/gray" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/etcLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="기타"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:background="@color/black" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="20dp"
+        android:text="추가하기"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scroll" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
