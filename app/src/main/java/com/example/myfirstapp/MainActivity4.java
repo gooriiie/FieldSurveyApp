@@ -3,9 +3,11 @@ package com.example.myfirstapp;
 import static android.widget.Toast.makeText;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +28,9 @@ import java.util.Map;
 public class MainActivity4 extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseFirestore db;
+    private Map<String, Integer> _switch;
+    private Map<String, Integer> _socket;
+    private Map<String, Integer> _sensor;
 
     String getAddress;
     String getRoom;
@@ -145,8 +150,13 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onClick(View view) {
+        _switch = new HashMap<>();
+        _socket = new HashMap<>();
+        _sensor = new HashMap<>();
+
         ScrollView sv = (ScrollView) findViewById(R.id.scroll);
 
         TextView switch1 = (TextView) findViewById(R.id.switch1);
@@ -163,9 +173,24 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
         TextView switch5count = (TextView) findViewById(R.id.switch5count);
         TextView switch6count = (TextView) findViewById(R.id.switch6count);
 
+        _switch.put(switch1.getText().toString(), Integer.parseInt(switch1count.getText().toString()));
+        _switch.put(switch2.getText().toString(), Integer.parseInt(switch2count.getText().toString()));
+        _switch.put(switch3.getText().toString(), Integer.parseInt(switch3count.getText().toString()));
+        _switch.put(switch4.getText().toString(), Integer.parseInt(switch4count.getText().toString()));
+        _switch.put(switch5.getText().toString(), Integer.parseInt(switch5count.getText().toString()));
+        _switch.put(switch6.getText().toString(), Integer.parseInt(switch6count.getText().toString()));
+
+        TextView socket1 = (TextView) findViewById(R.id.socket1);
+        TextView socket2 = (TextView) findViewById(R.id.socket2);
+        TextView socket4 = (TextView) findViewById(R.id.socket4);
+
         TextView socket1count = (TextView) findViewById(R.id.socket1count);
         TextView socket2count = (TextView) findViewById(R.id.socket2count);
         TextView socket4count = (TextView) findViewById(R.id.socket4count);
+
+        _socket.put(socket1.getText().toString(), Integer.parseInt(socket1count.getText().toString()));
+        _socket.put(socket2.getText().toString(), Integer.parseInt(socket2count.getText().toString()));
+        _socket.put(socket4.getText().toString(), Integer.parseInt(socket4count.getText().toString()));
 
         TextView sensor1count = (TextView) findViewById(R.id.sensor1count);
         TextView sensor2count = (TextView) findViewById(R.id.sensor2count);
@@ -390,10 +415,18 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                 Map<String, Object> room = new HashMap<>();
 
                 Map<String, Integer> part = new HashMap<>();
-                part.put(switch1.getText().toString(), Integer.parseInt(switch1count.getText().toString()));
-                part.put(switch2.getText().toString(), Integer.parseInt(switch2count.getText().toString()));
-                part.put(switch3.getText().toString(), Integer.parseInt(switch3count.getText().toString()));
-                part.put(switch4.getText().toString(), Integer.parseInt(switch4count.getText().toString()));
+
+                _switch.forEach((key, value) -> {
+                    if(value > 0) {
+                        part.put(key, value);
+                    }
+                });
+
+                _socket.forEach((key, value) -> {
+                    if(value > 0) {
+                        part.put(key, value);
+                    }
+                });
 
                 room.put(getRoom, part);
 
@@ -406,6 +439,7 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
 
                                 // intent activity3 추가
                                 Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
+                                intent.putExtra("address", getAddress);
                                 startActivity(intent);
                             }
                         })

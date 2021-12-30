@@ -115,7 +115,7 @@ public class MainActivity2 extends AppCompatActivity {
             public void onClick(View view) {
                 detail_address = ((EditText) findViewById(R.id.detailAddress)).getText().toString() ;
                 choice_address = choice_city + " " + choice_region + " " + choice_dong + " " + detail_address;
-                
+
                 makeText(getApplicationContext(), choice_address, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
                 intent.putExtra("address", choice_address);
