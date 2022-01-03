@@ -40,7 +40,7 @@ public class MainActivity2 extends AppCompatActivity {
         spin1.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if(adspin1.getItem(i).equals("대전광역시")) {
+                if (adspin1.getItem(i).equals("대전광역시")) {
                     choice_city = "대전광역시";
 
                     adspin2 = ArrayAdapter.createFromResource(MainActivity2.this, R.array.spinner_city_daejeon, android.R.layout.simple_spinner_dropdown_item);
@@ -52,7 +52,7 @@ public class MainActivity2 extends AppCompatActivity {
                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                             choice_region = adspin2.getItem(i).toString();
 
-                            switch(adspin2.getItem(i).toString()){
+                            switch (adspin2.getItem(i).toString()) {
                                 case "서구":
                                     adspin3 = ArrayAdapter.createFromResource(MainActivity2.this, R.array.spinner_city_daejeon_seogu, android.R.layout.simple_spinner_dropdown_item);
                                     break;
@@ -84,19 +84,18 @@ public class MainActivity2 extends AppCompatActivity {
 
                                 @Override
                                 public void onNothingSelected(AdapterView<?> adapterView) {
-
+                                    makeText(getApplicationContext(), "동을 선택하세요", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         }
 
                         @Override
                         public void onNothingSelected(AdapterView<?> adapterView) {
-
+                            makeText(getApplicationContext(), "구를 선택하세요", Toast.LENGTH_SHORT).show();
                         }
                     });
-                }
-                else if(adspin1.getItem(i).equals("세종특별자치시")){
-                    choice_city =  "세종특별자치시";
+                } else if (adspin1.getItem(i).equals("세종특별자치시")) {
+                    choice_city = "세종특별자치시";
 
                     adspin2 = ArrayAdapter.createFromResource(MainActivity2.this, R.array.spinner_city_default, android.R.layout.simple_spinner_dropdown_item);
                     adspin2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -106,20 +105,29 @@ public class MainActivity2 extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                makeText(getApplicationContext(), "시를 선택하세요", Toast.LENGTH_SHORT).show();
             }
         });
 
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                detail_address = ((EditText) findViewById(R.id.detailAddress)).getText().toString() ;
+                detail_address = ((EditText) findViewById(R.id.detailAddress)).getText().toString();
                 choice_address = choice_city + " " + choice_region + " " + choice_dong + " " + detail_address;
 
-                makeText(getApplicationContext(), choice_address, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
-                intent.putExtra("address", choice_address);
-                startActivity(intent);
+                if (choice_city.equals("선택") || choice_city.equals("")) {
+                    makeText(getApplicationContext(), "시를 선택하세요", Toast.LENGTH_SHORT).show();
+                } else if (choice_region.equals("선택") || choice_region.equals("선택없음")) {
+                    makeText(getApplicationContext(), "구를 선택하세요", Toast.LENGTH_SHORT).show();
+                } else if (choice_dong.equals("선택") || choice_dong.equals("선택없음")) {
+                    makeText(getApplicationContext(), "동을 선택하세요", Toast.LENGTH_SHORT).show();
+                } else {
+                    makeText(getApplicationContext(), choice_address, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
+                    intent.putExtra("address", choice_address);
+                    startActivity(intent);
+                }
+
             }
         });
     }
