@@ -34,7 +34,7 @@ public class MainActivity2 extends AppCompatActivity {
         final Spinner spin3 = (Spinner) findViewById(R.id.dong);
         Button btn_next = (Button) findViewById(R.id.button_next);
 
-        adspin1 = ArrayAdapter.createFromResource(this, R.array.sinner_city, android.R.layout.simple_spinner_dropdown_item);
+        adspin1 = ArrayAdapter.createFromResource(this, R.array.spinner_city, android.R.layout.simple_spinner_dropdown_item);
         adspin1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin1.setAdapter(adspin1);
         spin1.setOnItemSelectedListener(new OnItemSelectedListener() {

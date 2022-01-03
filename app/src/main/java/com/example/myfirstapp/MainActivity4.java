@@ -10,8 +10,11 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -67,6 +70,10 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
 
     Button btn_add;
 
+    ArrayAdapter<CharSequence> switchSpin;
+
+    String switchCorp = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,6 +90,23 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
         String getAddressRoom = getAddress + "/" + getRoom;
 
         addressroom.setText(getAddressRoom);
+
+        final Spinner switchSpinner = (Spinner) findViewById(R.id.switchSpinner);
+        switchSpin = ArrayAdapter.createFromResource(this, R.array.spinner_switch_corp, android.R.layout.simple_spinner_dropdown_item);
+        switchSpin.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        switchSpinner.setAdapter(switchSpin);
+        switchSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                switchCorp = switchSpin.getItem(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         btn_switch1minus = (Button) findViewById(R.id.button_switch1minus);
         btn_switch1plus = (Button) findViewById(R.id.button_switch1plus);
@@ -411,14 +435,16 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                 sv.scrollTo(0, 1450);
                 break;
 
+
+            // 추가하기 버튼 눌렀을 경우
             case R.id.button_add:
                 Map<String, Object> room = new HashMap<>();
-
                 Map<String, Integer> part = new HashMap<>();
 
                 _switch.forEach((key, value) -> {
                     if(value > 0) {
-                        part.put(key, value);
+                        String tmp = "(" + switchCorp + ") " + key;
+                        part.put(tmp, value);
                     }
                 });
 

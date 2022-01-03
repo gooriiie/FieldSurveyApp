@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="sinner_city">
+    <string-array name="spinner_city">
         <item>선택</item>
         <item>대전광역시</item>
         <item>세종특별자치시</item>
@@ -112,5 +112,13 @@
     </string-array>
     <string-array name="spinner_city_default">
         <item>선택 없음</item>
+    </string-array>
+
+    <string-array name="spinner_switch_corp">
+        <item>스위치 회사1</item>
+        <item>스위치 회사2</item>
+        <item>스위치 회사3</item>
+        <item>스위치 회사4</item>
+        <item>스위치 회사5</item>
     </string-array>
 </resources>
