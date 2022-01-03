@@ -61,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        //
-
         Button button_addspace = findViewById(R.id.button_addspace);
         button_addspace.setOnClickListener(new View.OnClickListener() {
             @Override

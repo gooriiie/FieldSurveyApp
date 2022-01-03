@@ -2,6 +2,7 @@ package com.example.myfirstapp;
 
 import static android.widget.Toast.makeText;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,7 +16,20 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity2 extends AppCompatActivity {
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+    List<String> addressList;
+
     ArrayAdapter<CharSequence> adspin1, adspin2, adspin3;
     String choice_city = "";
     String choice_region = "";
@@ -23,11 +37,12 @@ public class MainActivity2 extends AppCompatActivity {
     String detail_address = "";
     String choice_address;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        addressList = new ArrayList<>();
 
         final Spinner spin1 = (Spinner) findViewById(R.id.city);
         final Spinner spin2 = (Spinner) findViewById(R.id.region);
@@ -109,26 +124,45 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
+
+        // 다음으로 버튼 클릭시
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                detail_address = ((EditText) findViewById(R.id.detailAddress)).getText().toString();
-                choice_address = choice_city + " " + choice_region + " " + choice_dong + " " + detail_address;
+                db.collection("addresses")
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                        addressList.add(document.getId());
+                                    }
+                                }
+                                detail_address = ((EditText) findViewById(R.id.detailAddress)).getText().toString();
+                                choice_address = choice_city + " " + choice_region + " " + choice_dong + " " + detail_address;
 
-                if (choice_city.equals("선택") || choice_city.equals("")) {
-                    makeText(getApplicationContext(), "시를 선택하세요", Toast.LENGTH_SHORT).show();
-                } else if (choice_region.equals("선택") || choice_region.equals("선택없음")) {
-                    makeText(getApplicationContext(), "구를 선택하세요", Toast.LENGTH_SHORT).show();
-                } else if (choice_dong.equals("선택") || choice_dong.equals("선택없음")) {
-                    makeText(getApplicationContext(), "동을 선택하세요", Toast.LENGTH_SHORT).show();
-                } else {
-                    makeText(getApplicationContext(), choice_address, Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
-                    intent.putExtra("address", choice_address);
-                    startActivity(intent);
-                }
-
+                                if (choice_city.equals("선택") || choice_city.equals("")) {
+                                    makeText(getApplicationContext(), "시를 선택하세요", Toast.LENGTH_SHORT).show();
+                                } else if (choice_region.equals("선택") || choice_region.equals("선택없음")) {
+                                    makeText(getApplicationContext(), "구를 선택하세요", Toast.LENGTH_SHORT).show();
+                                } else if (choice_dong.equals("선택") || choice_dong.equals("선택없음")) {
+                                    makeText(getApplicationContext(), "동을 선택하세요", Toast.LENGTH_SHORT).show();
+                                } else if (detail_address.equals("")) {
+                                    makeText(getApplicationContext(), "상세주소를 입력하세요", Toast.LENGTH_SHORT).show();
+                                } else if (addressList.contains(choice_address)) {
+                                    makeText(getApplicationContext(), "이미 존재하는 주소입니다", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    makeText(getApplicationContext(), choice_address, Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
+                                    intent.putExtra("address", choice_address);
+                                    startActivity(intent);
+                                }
+                            }
+                        });
             }
         });
+
+
     }
 }
