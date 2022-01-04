@@ -458,7 +458,6 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
 
                 room.put(getRoom, part);
                 room.put("닉네임", getNickName);
-                makeText(getApplicationContext(), getNickName, Toast.LENGTH_SHORT).show();
 
                 db.collection("addresses").document(getAddress)
                         .set(room, SetOptions.merge())
@@ -470,6 +469,7 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                                 // intent activity3 추가
                                 Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
                                 intent.putExtra("address", getAddress);
+                                intent.putExtra("nickName", getNickName);
                                 startActivity(intent);
                             }
                         })
