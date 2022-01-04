@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity2">
 
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -30,7 +32,8 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
@@ -50,15 +53,49 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="8"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout9"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="50dp"
+                android:text="닉네임" />
+
+            <EditText
+                android:id="@+id/inputNickName"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"></EditText>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -85,7 +122,8 @@
         <LinearLayout
             android:id="@+id/linearLayout5"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -112,7 +150,8 @@
         <LinearLayout
             android:id="@+id/linearLayout6"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -135,34 +174,37 @@
                 app:layout_constraintTop_toBottomOf="@+id/region"></Spinner>
         </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent">
+        <LinearLayout
+            android:id="@+id/linearLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="50dp"
-            android:text="상세주소"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="50dp"
+                android:text="상세주소"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <EditText
-            android:id="@+id/detailAddress"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"></EditText>
-    </LinearLayout>
+            <EditText
+                android:id="@+id/detailAddress"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"></EditText>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout8"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -170,13 +212,19 @@
                 android:id="@+id/button_next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="160dp"
                 android:text="@string/button_next"
                 app:backgroundTint="@color/purple_500"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dong" />
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent" />
+
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

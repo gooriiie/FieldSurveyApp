@@ -35,6 +35,7 @@ public class MainActivity2 extends AppCompatActivity {
     String choice_region = "";
     String choice_dong = "";
     String detail_address = "";
+    String nickName = "";
     String choice_address;
 
     @Override
@@ -139,10 +140,13 @@ public class MainActivity2 extends AppCompatActivity {
                                         addressList.add(document.getId());
                                     }
                                 }
+                                nickName = ((EditText) findViewById(R.id.inputNickName)).getText().toString();
                                 detail_address = ((EditText) findViewById(R.id.detailAddress)).getText().toString();
                                 choice_address = choice_city + " " + choice_region + " " + choice_dong + " " + detail_address;
 
-                                if (choice_city.equals("선택") || choice_city.equals("")) {
+                                if (nickName.equals("")) {
+                                    makeText(getApplicationContext(), "닉네임을 입력하세요", Toast.LENGTH_SHORT).show();
+                                } else if (choice_city.equals("선택") || choice_city.equals("")) {
                                     makeText(getApplicationContext(), "시를 선택하세요", Toast.LENGTH_SHORT).show();
                                 } else if (choice_region.equals("선택") || choice_region.equals("선택없음")) {
                                     makeText(getApplicationContext(), "구를 선택하세요", Toast.LENGTH_SHORT).show();
@@ -156,6 +160,7 @@ public class MainActivity2 extends AppCompatActivity {
                                     makeText(getApplicationContext(), choice_address, Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
                                     intent.putExtra("address", choice_address);
+                                    intent.putExtra("nickName", nickName);
                                     startActivity(intent);
                                 }
                             }
