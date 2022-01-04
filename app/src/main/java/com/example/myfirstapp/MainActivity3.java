@@ -11,6 +11,7 @@ import android.widget.TextView;
 public class MainActivity3 extends AppCompatActivity implements View.OnClickListener {
 
     String getAddress;
+    String getNickName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
         TextView address = (TextView) findViewById(R.id.address);
 
         getAddress = intent.getStringExtra("address");
+        getNickName = intent.getStringExtra("nickName");
 
         address.setText(getAddress);
 
@@ -55,6 +57,7 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         Intent intent = new Intent(getApplicationContext(), MainActivity4.class);
         intent.putExtra("address", getAddress);
+        intent.putExtra("nickName", getNickName);
 
         switch (view.getId()) {
             case R.id.button_livingroom:

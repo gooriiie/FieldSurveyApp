@@ -36,6 +36,7 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
     private Map<String, Integer> _sensor;
 
     String getAddress;
+    String getNickName;
     String getRoom;
 
     Button btn_switch1minus;
@@ -86,6 +87,7 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
         TextView addressroom = (TextView) findViewById(R.id.addressroom);
 
         getAddress = intent.getStringExtra("address");
+        getNickName = intent.getStringExtra("nickName");
         getRoom = intent.getStringExtra("room");
         String getAddressRoom = getAddress + "/" + getRoom;
 
@@ -455,6 +457,8 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                 });
 
                 room.put(getRoom, part);
+                room.put("닉네임", getNickName);
+                makeText(getApplicationContext(), getNickName, Toast.LENGTH_SHORT).show();
 
                 db.collection("addresses").document(getAddress)
                         .set(room, SetOptions.merge())

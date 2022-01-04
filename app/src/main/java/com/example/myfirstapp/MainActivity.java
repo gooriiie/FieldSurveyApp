@@ -23,6 +23,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,7 +54,16 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                Item rc = new Item(document.getId());
+                                String eachNickName = "";
+
+                                Map<String, Object> data = document.getData();
+                                for (String r : data.keySet()) {
+                                    if (r.equals("닉네임")) {
+                                        eachNickName = "[ " + (String) data.get(r) + " ]";
+                                        break;
+                                    }
+                                }
+                                Item rc = new Item(eachNickName, document.getId());
                                 itemList.add(rc);
                                 recyclerView.setAdapter(adapter);
                             }

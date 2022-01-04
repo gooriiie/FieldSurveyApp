@@ -48,6 +48,9 @@ public class MainActivity5 extends AppCompatActivity {
                             if (document.exists()) {
                                 Map<String, Object> data = document.getData();
                                 for (String r : data.keySet()) {
+                                    if (r.equals("닉네임")) {
+                                        continue;
+                                    }
                                     HashMap<String, Integer> room = (HashMap<String, Integer>) data.get(r);
 
                                     TextView roomName = new TextView(getApplicationContext());

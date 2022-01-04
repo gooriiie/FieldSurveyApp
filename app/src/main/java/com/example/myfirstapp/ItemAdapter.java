@@ -44,7 +44,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Item item = items.get(position);
-        holder.tv.setText(item.getAddress());
+        holder.tv_nickName.setText(item.getNickName());
+        holder.tv_address.setText(item.getAddress());
     }
 
     @Override
@@ -54,11 +55,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tv;
+        TextView tv_nickName;
+        TextView tv_address;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tv = (TextView) itemView.findViewById(R.id.item_address);
+            tv_nickName = (TextView) itemView.findViewById(R.id.item_nickName);
+            tv_address = (TextView) itemView.findViewById(R.id.item_address);
             itemView.setClickable(true);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
