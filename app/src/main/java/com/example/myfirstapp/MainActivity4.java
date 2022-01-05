@@ -437,7 +437,6 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                 sv.scrollTo(0, 1450);
                 break;
 
-
             // 추가하기 버튼 눌렀을 경우
             case R.id.button_add:
                 Map<String, Object> room = new HashMap<>();
@@ -464,7 +463,7 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
-                                makeText(getApplicationContext(), getRoom +"을 추가했습니다.", Toast.LENGTH_SHORT).show();
+                                makeText(getApplicationContext(), getRoom + "을 추가했습니다.", Toast.LENGTH_SHORT).show();
 
                                 // intent activity3 추가
                                 Intent intent = new Intent(getApplicationContext(), MainActivity3.class);

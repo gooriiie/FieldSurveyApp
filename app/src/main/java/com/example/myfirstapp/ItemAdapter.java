@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,17 +20,22 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
+public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> implements Filterable {
     private Context ctx;
     private List<Item> items = null;
     private ArrayList<Item> arrayList;
+    private List<Item> unfilterList;
+    private List<Item> filterList;
 
     OnAddressItemClickListener listener;
 
     public ItemAdapter(Context context, List<Item> items) {
         this.ctx = context;
         this.items = items;
+        this.unfilterList = items;
+        this.filterList = items;
         arrayList = new ArrayList<Item>();
         arrayList.addAll(items);
     }
@@ -43,14 +50,48 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final Item item = items.get(position);
+        final Item item = filterList.get(position);
         holder.tv_nickName.setText(item.getNickName());
         holder.tv_address.setText(item.getAddress());
     }
 
     @Override
     public int getItemCount() {
-        return this.items.size();
+        return this.filterList.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String str = charSequence.toString();
+                if (str.isEmpty()) {
+                    filterList = unfilterList;
+                } else {
+                    List<Item> filteringList = new ArrayList<>();
+
+                    for (Item item : unfilterList) {
+                        if (item.getAddress().contains(str)) {
+                            filteringList.add(item);
+                        }
+                    }
+
+                    filterList = filteringList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = filterList;
+
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                filterList = (List<Item>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 
 
@@ -71,6 +112,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                         Intent intent = new Intent(ctx, MainActivity5.class);
 
                         intent.putExtra("address", items.get(pos).getAddress());
+                        intent.putExtra("nickName", items.get(pos).getNickName());
 
                         ctx.startActivity(intent);
                     }
