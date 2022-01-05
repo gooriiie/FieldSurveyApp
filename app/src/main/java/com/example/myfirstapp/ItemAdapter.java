@@ -109,7 +109,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> im
                 public void onClick(View view) {
                     int pos = getAdapterPosition();
                     if (pos != RecyclerView.NO_POSITION) {
-                        Intent intent = new Intent(ctx, MainActivity5.class);
+                        Intent intent = new Intent(ctx, MainActivity7.class);
 
                         intent.putExtra("address", items.get(pos).getAddress());
                         intent.putExtra("nickName", items.get(pos).getNickName());
