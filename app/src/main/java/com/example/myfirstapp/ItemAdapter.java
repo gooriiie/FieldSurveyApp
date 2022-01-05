@@ -72,7 +72,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> im
                     List<Item> filteringList = new ArrayList<>();
 
                     for (Item item : unfilterList) {
-                        if (item.getAddress().contains(str)) {
+                        if (item.getAddress().contains(str) || item.getNickName().contains(str)) {
                             filteringList.add(item);
                         }
                     }
