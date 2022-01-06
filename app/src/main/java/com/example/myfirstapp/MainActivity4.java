@@ -466,7 +466,8 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                                 makeText(getApplicationContext(), getRoom + "을 추가했습니다.", Toast.LENGTH_SHORT).show();
 
                                 // intent activity3 추가
-                                Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
+//                                Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
+                                Intent intent = new Intent(getApplicationContext(), SelectSpace.class);
                                 intent.putExtra("address", getAddress);
                                 intent.putExtra("nickName", getNickName);
                                 startActivity(intent);

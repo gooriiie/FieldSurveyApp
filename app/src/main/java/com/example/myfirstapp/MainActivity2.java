@@ -158,7 +158,8 @@ public class MainActivity2 extends AppCompatActivity {
                                     makeText(getApplicationContext(), "이미 존재하는 주소입니다", Toast.LENGTH_SHORT).show();
                                 } else {
                                     makeText(getApplicationContext(), choice_address, Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
+//                                    Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
+                                    Intent intent = new Intent(getApplicationContext(), SelectSpace.class);
                                     intent.putExtra("address", choice_address);
                                     intent.putExtra("nickName", nickName);
                                     startActivity(intent);
