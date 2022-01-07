@@ -4,8 +4,10 @@ import static android.widget.Toast.makeText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -468,7 +471,7 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                             public void onSuccess(Void unused) {
                                 makeText(getApplicationContext(), getRoom + "을 추가했습니다.", Toast.LENGTH_SHORT).show();
 
-                                // intent activity3 추가
+//                                intent activity3 추가
 //                                Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
                                 Intent intent = new Intent(getApplicationContext(), SelectSpace.class);
                                 intent.putExtra("address", getAddress);
@@ -482,8 +485,76 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                                 makeText(getApplicationContext(), "추가하는데 실패했습니다.", Toast.LENGTH_SHORT).show();
                             }
                         });
+                break;
             case R.id.button_add_withOtherName:
-                
+                AlertDialog.Builder ad = new AlertDialog.Builder(MainActivity4.this);
+                ad.setIcon(R.mipmap.ic_launcher);
+                ad.setMessage("현재 공간을 뭐라고 저장할지 입력하세요.");
+                ad.setTitle("입력");
+
+                final EditText et = new EditText(MainActivity4.this);
+                ad.setView(et);
+
+                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String result = et.getText().toString();
+                        getRoom += " (" + result + ")";
+                        Map<String, Object> room2 = new HashMap<>();
+                        Map<String, Integer> part2 = new HashMap<>();
+
+                        _switch.forEach((key, value) -> {
+                            if(value > 0) {
+                                String tmp = "(" + switchCorp + ") " + key;
+                                part2.put(tmp, value);
+                            }
+                        });
+
+                        _socket.forEach((key, value) -> {
+                            if(value > 0) {
+                                part2.put(key, value);
+                            }
+                        });
+
+                        room2.put(getRoom, part2);
+                        room2.put("닉네임", getNickName);
+
+                        db.collection("addresses").document(getAddress)
+                                .set(room2, SetOptions.merge())
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        makeText(getApplicationContext(), getRoom + "을 추가했습니다.", Toast.LENGTH_SHORT).show();
+
+//                                intent activity3 추가
+//                                Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
+                                        Intent intent = new Intent(getApplicationContext(), SelectSpace.class);
+                                        intent.putExtra("address", getAddress);
+                                        intent.putExtra("nickName", getNickName);
+                                        startActivity(intent);
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        makeText(getApplicationContext(), "추가하는데 실패했습니다.", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                        dialogInterface.dismiss();
+                    }
+                });
+
+                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+
+                ad.show();
+
+
+                break;
         }
     }
 }
