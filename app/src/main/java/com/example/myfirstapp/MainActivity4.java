@@ -70,6 +70,7 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
     Button btn_scrollTo_lightLine;
 
     Button btn_add;
+    Button btn_add_withOtherName;
 
     ArrayAdapter<CharSequence> switchSpin;
 
@@ -85,11 +86,13 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
         Intent intent = getIntent();
 
         TextView addressroom = (TextView) findViewById(R.id.addressroom);
+        TextView titleRoom = (TextView) findViewById(R.id.textView7);
 
         getAddress = intent.getStringExtra("address");
         getNickName = intent.getStringExtra("nickName");
         getRoom = intent.getStringExtra("room");
         String getAddressRoom = getAddress + "/" + getRoom;
+        titleRoom.append(" (" + getRoom + ")");
 
         addressroom.setText(getAddressRoom);
 
@@ -98,12 +101,10 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
         switchSpin.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         switchSpinner.setAdapter(switchSpin);
         switchSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
-
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 switchCorp = switchSpin.getItem(i).toString();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -141,6 +142,7 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
         btn_scrollTo_lightLine = (Button) findViewById(R.id.button_scrollTo_lightLine);
 
         btn_add = (Button) findViewById(R.id.button_add);
+        btn_add_withOtherName = (Button) findViewById(R.id.button_add_withOtherName);
 
         btn_switch1minus.setOnClickListener(this);
         btn_switch1plus.setOnClickListener(this);
@@ -173,6 +175,7 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
         btn_scrollTo_lightLine.setOnClickListener(this);
 
         btn_add.setOnClickListener(this);
+        btn_add_withOtherName.setOnClickListener(this);
 
     }
 
@@ -479,6 +482,8 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                                 makeText(getApplicationContext(), "추가하는데 실패했습니다.", Toast.LENGTH_SHORT).show();
                             }
                         });
+            case R.id.button_add_withOtherName:
+                
         }
     }
 }

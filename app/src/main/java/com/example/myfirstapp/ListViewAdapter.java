@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.Space;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +43,8 @@ public class ListViewAdapter extends BaseAdapter {
     public long getItemId(int i) {
         return i;
     }
+
+
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {

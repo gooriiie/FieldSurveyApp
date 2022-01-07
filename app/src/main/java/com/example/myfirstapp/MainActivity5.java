@@ -93,7 +93,7 @@ public class MainActivity5 extends AppCompatActivity {
         btn_correct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity6.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
                 intent.putExtra("address", address);
                 intent.putExtra("nickName", nickName);
                 startActivity(intent);

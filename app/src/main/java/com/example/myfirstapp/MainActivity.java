@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
                                 Map<String, Object> data = document.getData();
                                 for (String r : data.keySet()) {
                                     if (r.equals("닉네임")) {
-                                        eachNickName = "[ " + (String) data.get(r) + " ]";
+                                        eachNickName = (String) data.get(r);
                                         break;
                                     }
                                 }
