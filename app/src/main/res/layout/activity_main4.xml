@@ -70,39 +70,43 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:includeFontPadding="false"
             android:layout_marginLeft="35dp"
             android:gravity="center_vertical"
             android:text="이동" />
 
-        <Button
+        <android.widget.Button
             android:id="@+id/button_scrollTo_switchLine"
             android:layout_width="75dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_gravity="center_vertical"
+            android:includeFontPadding="false"
             android:layout_marginLeft="20dp"
             android:layout_weight="0"
             android:text="스위치"
-            app:backgroundTint="@color/teal_200" />
+            android:background="@drawable/button_emptybtn" />
 
-        <Button
+        <android.widget.Button
             android:id="@+id/button_scrollTo_socketLine"
             android:layout_width="75dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
+            android:includeFontPadding="false"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_weight="0"
             android:text="콘센트"
-            app:backgroundTint="@color/teal_500" />
+            android:background="@drawable/button_emptybtn" />
 
-        <Button
+        <android.widget.Button
             android:id="@+id/button_scrollTo_sensorLine"
             android:layout_width="75dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
+            android:includeFontPadding="false"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_weight="0"
             android:text="감지기"
-            app:backgroundTint="@color/teal_700" />
+            android:background="@drawable/button_emptybtn" />
     </LinearLayout>
 
     <LinearLayout
@@ -113,15 +117,16 @@
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-        <Button
+        <android.widget.Button
             android:id="@+id/button_scrollTo_lightLine"
             android:layout_width="75dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_gravity="center_vertical"
+            android:includeFontPadding="false"
             android:layout_marginLeft="81dp"
             android:layout_weight="0"
             android:text="조명"
-            app:backgroundTint="@color/ultra_marine" />
+            android:background="@drawable/button_emptybtn" />
     </LinearLayout>
 
     <ScrollView
@@ -154,6 +159,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="35dp"
                         android:layout_marginBottom="5dp"
+                        android:includeFontPadding="false"
                         android:text="스위치"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -180,8 +186,9 @@
                         android:id="@+id/switch1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="35dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="스위치 1구" />
 
                     <Button
@@ -189,8 +196,9 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="-"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -199,17 +207,19 @@
                         android:id="@+id/switch1count"
                         android:layout_width="25dp"
                         android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:includeFontPadding="false"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="15dp"
                         android:text="0" />
 
                     <Button
                         android:id="@+id/button_switch1plus"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="+"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -225,7 +235,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="35dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="스위치 2구" />
 
                     <Button
@@ -233,7 +243,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="-"
                         android:textColor="@color/black"
@@ -244,7 +254,7 @@
                         android:layout_width="25dp"
                         android:layout_height="20dp"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="0" />
 
                     <Button
@@ -252,9 +262,9 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
                         android:layout_weight="0"
                         android:text="+"
+                        android:includeFontPadding="false"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
                 </LinearLayout>
@@ -269,7 +279,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="35dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="스위치 3구" />
 
                     <Button
@@ -277,7 +287,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="-"
                         android:textColor="@color/black"
@@ -288,7 +298,7 @@
                         android:layout_width="25dp"
                         android:layout_height="20dp"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="0" />
 
                     <Button
@@ -296,7 +306,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="+"
                         android:textColor="@color/black"
@@ -313,7 +323,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="35dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="스위치 4구" />
 
                     <Button
@@ -321,7 +331,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="-"
                         android:textColor="@color/black"
@@ -332,7 +342,7 @@
                         android:layout_width="25dp"
                         android:layout_height="20dp"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="0" />
 
                     <Button
@@ -340,7 +350,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="+"
                         android:textColor="@color/black"
@@ -357,7 +367,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="35dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="스위치 5구" />
 
                     <Button
@@ -365,7 +375,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="-"
                         android:textColor="@color/black"
@@ -376,7 +386,7 @@
                         android:layout_width="25dp"
                         android:layout_height="20dp"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="0" />
 
                     <Button
@@ -384,7 +394,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="+"
                         android:textColor="@color/black"
@@ -401,7 +411,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="35dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="스위치 6구" />
 
                     <Button
@@ -409,7 +419,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="-"
                         android:textColor="@color/black"
@@ -420,7 +430,7 @@
                         android:layout_width="25dp"
                         android:layout_height="20dp"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="0" />
 
                     <Button
@@ -428,7 +438,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="+"
                         android:textColor="@color/black"
@@ -450,7 +460,8 @@
                     android:layout_marginBottom="5dp"
                     android:text="콘센트"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:includeFontPadding="false"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -467,7 +478,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="35dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="콘센트 1구" />
 
                     <Button
@@ -475,7 +486,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="-"
                         android:textColor="@color/black"
@@ -486,7 +497,7 @@
                         android:layout_width="25dp"
                         android:layout_height="20dp"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="0" />
 
                     <Button
@@ -494,7 +505,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="+"
                         android:textColor="@color/black"
@@ -511,7 +522,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="35dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="콘센트 2구" />
 
                     <Button
@@ -519,7 +530,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="-"
                         android:textColor="@color/black"
@@ -530,7 +541,7 @@
                         android:layout_width="25dp"
                         android:layout_height="20dp"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="0" />
 
                     <Button
@@ -538,7 +549,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="+"
                         android:textColor="@color/black"
@@ -555,7 +566,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="35dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="콘센트 4구" />
 
                     <Button
@@ -563,7 +574,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="-"
                         android:textColor="@color/black"
@@ -574,7 +585,7 @@
                         android:layout_width="25dp"
                         android:layout_height="20dp"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="0" />
 
                     <Button
@@ -582,7 +593,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="+"
                         android:textColor="@color/black"
@@ -604,7 +615,8 @@
                     android:layout_marginBottom="5dp"
                     android:text="감지기"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:includeFontPadding="false"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -621,7 +633,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="35dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="정온식 감지기" />
 
                     <Button
@@ -629,7 +641,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="-"
                         android:textColor="@color/black"
@@ -640,7 +652,7 @@
                         android:layout_width="25dp"
                         android:layout_height="20dp"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="0" />
 
                     <Button
@@ -648,7 +660,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="+"
                         android:textColor="@color/black"
@@ -665,7 +677,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="35dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="광전식 감지기" />
 
                     <Button
@@ -673,7 +685,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="-"
                         android:textColor="@color/black"
@@ -684,7 +696,7 @@
                         android:layout_width="25dp"
                         android:layout_height="20dp"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="0" />
 
                     <Button
@@ -692,7 +704,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="+"
                         android:textColor="@color/black"
@@ -715,7 +727,8 @@
                     android:layout_marginBottom="5dp"
                     android:text="조명"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:includeFontPadding="false"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -732,7 +745,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="35dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="메인조명" />
 
                     <Button
@@ -740,7 +753,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="-"
                         android:textColor="@color/black"
@@ -751,7 +764,7 @@
                         android:layout_width="25dp"
                         android:layout_height="20dp"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="0" />
 
                     <Button
@@ -759,7 +772,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="+"
                         android:textColor="@color/black"
@@ -775,7 +788,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="35dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="서브조명" />
 
                     <Button
@@ -783,7 +796,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="-"
                         android:textColor="@color/black"
@@ -794,7 +807,7 @@
                         android:layout_width="25dp"
                         android:layout_height="20dp"
                         android:layout_marginLeft="50dp"
-                        android:layout_marginTop="15dp"
+                        android:includeFontPadding="false"
                         android:text="0" />
 
                     <Button
@@ -802,7 +815,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="15.5dp"
+                        android:includeFontPadding="false"
                         android:layout_weight="0"
                         android:text="+"
                         android:textColor="@color/black"
@@ -824,7 +837,8 @@
                     android:layout_marginBottom="5dp"
                     android:text="기타"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:includeFontPadding="false"/>
 
                 <View
                     android:layout_width="match_parent"
@@ -842,20 +856,24 @@
         android:orientation="horizontal"
         android:layout_gravity="center_horizontal">
 
-        <Button
+        <android.widget.Button
             android:id="@+id/button_add"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:background="@drawable/button_solidbtn"
+            android:textColor="#FFFFFF"
             android:text="추가하기" />
         <View
             android:layout_width="10dp"
             android:layout_height="0dp"/>
-        <Button
+        <android.widget.Button
             android:id="@+id/button_add_withOtherName"
-            android:layout_width="wrap_content"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:background="@drawable/button_emptybtn"
+            android:textColor="#FF7800"
             android:text="다른 이름으로 공간 추가하기" />
     </LinearLayout>
 

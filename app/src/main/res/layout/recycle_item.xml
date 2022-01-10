@@ -23,6 +23,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="10dp"
             android:textSize="14sp"
+            android:includeFontPadding="false"
             android:textStyle="bold" />
 
         <TextView
@@ -33,6 +34,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:textColor="@color/gray2"
+            android:includeFontPadding="false"
             android:textSize="12sp" />
     </RelativeLayout>
 
