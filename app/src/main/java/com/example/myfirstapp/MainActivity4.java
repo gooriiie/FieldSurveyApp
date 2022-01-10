@@ -89,13 +89,13 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
         Intent intent = getIntent();
 
         TextView addressroom = (TextView) findViewById(R.id.addressroom);
-        TextView titleRoom = (TextView) findViewById(R.id.textView7);
+//        TextView titleRoom = (TextView) findViewById(R.id.textView7);
 
         getAddress = intent.getStringExtra("address");
         getNickName = intent.getStringExtra("nickName");
         getRoom = intent.getStringExtra("room");
         String getAddressRoom = getAddress + "/" + getRoom;
-        titleRoom.append(" (" + getRoom + ")");
+//        titleRoom.append(" (" + getRoom + ")");
 
         addressroom.setText(getAddressRoom);
 

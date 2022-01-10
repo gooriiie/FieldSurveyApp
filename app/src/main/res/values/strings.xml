@@ -2,8 +2,8 @@
     <string name="app_name">MyFirstApp</string>
     <string name="menu_list">■ 현장 목록</string>
     <string name="menu_detail">■ 현장 세부정보</string>
-    <string name="button_addspace">+현장 추가하기</string>
-    <string name="menu_addspace">■ 현장 추가하기</string>
+    <string name="button_addspace">+ 현장 추가</string>
+    <string name="menu_addspace">■ 현장 추가</string>
     <string name="select_address">주소를 선택해주세요.</string>
     <string name="input_nickname">닉네임을 입력해주세요.</string>
     <string name="button_next">다음으로</string>
