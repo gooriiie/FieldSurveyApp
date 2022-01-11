@@ -11,4 +11,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#D3D3D3</color>
     <color name="gray2">#696969</color>
+    <color name="red">#FF0000</color>
+    <color name="skyblue">#00D5FF</color>
+    <color name="blue">#046DD6</color>
+    <color name="orange">#FF7800</color>
+    <color name="yellow">#F7FF0A</color>
+    <color name="dark_orange">#C45C00</color>
+    <color name="invisible">#00FF0000</color>
 </resources>
