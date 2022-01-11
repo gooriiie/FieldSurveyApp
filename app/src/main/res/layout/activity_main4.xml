@@ -84,7 +84,7 @@
             android:layout_marginLeft="20dp"
             android:layout_weight="0"
             android:text="스위치"
-            android:background="@drawable/button_emptybtn" />
+            android:background="@drawable/button_emptyorange" />
 
         <android.widget.Button
             android:id="@+id/button_scrollTo_socketLine"
@@ -95,7 +95,7 @@
             android:layout_marginLeft="10dp"
             android:layout_weight="0"
             android:text="콘센트"
-            android:background="@drawable/button_emptybtn" />
+            android:background="@drawable/button_emptyorange" />
 
         <android.widget.Button
             android:id="@+id/button_scrollTo_sensorLine"
@@ -106,7 +106,7 @@
             android:layout_marginLeft="10dp"
             android:layout_weight="0"
             android:text="감지기"
-            android:background="@drawable/button_emptybtn" />
+            android:background="@drawable/button_emptyorange" />
     </LinearLayout>
 
     <LinearLayout
@@ -126,7 +126,7 @@
             android:layout_marginLeft="81dp"
             android:layout_weight="0"
             android:text="조명"
-            android:background="@drawable/button_emptybtn" />
+            android:background="@drawable/button_emptyorange" />
     </LinearLayout>
 
     <ScrollView
@@ -861,7 +861,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/button_solidbtn"
+            android:background="@drawable/button_solidorange"
             android:textColor="#FFFFFF"
             android:text="추가하기" />
         <View
@@ -872,7 +872,7 @@
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/button_emptybtn"
+            android:background="@drawable/button_emptyorange"
             android:textColor="#FF7800"
             android:text="다른 이름으로 공간 추가하기" />
     </LinearLayout>

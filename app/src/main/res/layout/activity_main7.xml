@@ -88,7 +88,7 @@
             android:id="@+id/button_checkDetail"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_solidbtn"
+            android:background="@drawable/button_solidorange"
             android:textColor="#FFFFFF"
             android:text="세부정보 보기"/>
     </LinearLayout>

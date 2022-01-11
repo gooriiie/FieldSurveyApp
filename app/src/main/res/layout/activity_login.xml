@@ -13,14 +13,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
+        android:layout_weight="2"
         android:gravity="center">
 
-        <ImageView
-            android:layout_width="200dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:src="@drawable/logo"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="@string/logo"
+            android:textStyle="bold"
+            android:includeFontPadding="false"
+            android:textColor="@color/black"
+            android:textSize="40sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -37,45 +42,57 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/black"
+                android:layout_marginBottom="16dp"
                 app:boxBackgroundColor="@color/white"
-                app:boxStrokeColor="@color/gray"
+                app:boxStrokeColor="@color/blue"
                 app:errorTextColor="@color/red"
-                app:hintTextColor="@color/teal_200"
+                app:hintTextColor="@color/blue"
                 app:boxStrokeErrorColor="@color/red"
-                android:layout_marginBottom="16dp">
+                app:startIconDrawable="@drawable/ic_account_box"
+                app:endIconMode="clear_text">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputId"
+                    android:id="@+id/loginId"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:includeFontPadding="false"
-                    android:hint="Id"
-                    android:textCursorDrawable="@color/teal_200">
+                    android:hint="아이디"
+                    android:inputType="text"
+                    android:textCursorDrawable="@color/blue">
 
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
 
+
+
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/black"
+                android:layout_marginBottom="16dp"
                 app:boxBackgroundColor="@color/white"
-                app:boxStrokeColor="@color/gray"
+                app:boxStrokeColor="@color/blue"
                 app:errorTextColor="@color/red"
-                app:hintTextColor="@color/teal_200"
+                app:hintTextColor="@color/blue"
                 app:boxStrokeErrorColor="@color/red"
-                android:layout_marginBottom="16dp">
+                app:passwordToggleEnabled="true"
+                app:counterEnabled="true"
+                app:counterMaxLength="15"
+                app:startIconDrawable="@drawable/ic_lock">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputPassword"
+                    android:id="@+id/loginPassword"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:includeFontPadding="false"
-                    android:hint="Password"
-                    android:textCursorDrawable="@color/teal_200"/>
+                    android:hint="비밀번호"
+                    android:inputType="textPassword"
+                    android:textCursorDrawable="@color/blue" />
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
@@ -89,8 +106,8 @@
             <android.widget.Button
                 android:id="@+id/button_login"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:background="@drawable/button_solidbtn"
+                android:layout_height="40dp"
+                android:background="@drawable/button_solidorange"
                 android:textColor="#FFFFFF"
                 android:includeFontPadding="false"
                 android:layout_marginBottom="10dp"

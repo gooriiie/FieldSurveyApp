@@ -23,8 +23,8 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        id = findViewById(R.id.inputId);
-        password = findViewById(R.id.inputId);
+        id = findViewById(R.id.loginId);
+        password = findViewById(R.id.loginPassword);
         btn_login = findViewById(R.id.button_login);
         btn_findPassword = findViewById(R.id.button_findPassword);
         btn_signup = findViewById(R.id.button_signup);
@@ -32,9 +32,18 @@ public class Login extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                db 확인 후 id, pw 일치하면 login 성공
+//                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                intent.putExtra("id", id.getText().toString());
+//                intent.putExtra("password", password.getText().toString());
+//                startActivity(intent);
+            }
+        });
+
+        btn_signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Signup.class);
-                intent.putExtra("id", id.getText().toString());
-                intent.putExtra("password", password.getText().toString());
                 startActivity(intent);
             }
         });

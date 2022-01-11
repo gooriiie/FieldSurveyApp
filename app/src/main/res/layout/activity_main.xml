@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="3"
-            android:background="@drawable/button_solidbtn"
+            android:background="@drawable/button_solidorange"
             android:fontFamily="@font/noto_sans_kr_family"
             android:text="@string/button_addspace"
             android:textColor="#FFFFFF"
