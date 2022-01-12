@@ -10,7 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFirstApp">
         <activity
-            android:name=".Signup"
+            android:name=".Signup5"
+            android:exported="false" />
+        <activity
+            android:name=".Signup4"
+            android:exported="false" />
+        <activity
+            android:name=".Signup3"
+            android:exported="false" />
+        <activity
+            android:name=".Signup2"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".Signup1"
             android:exported="false" />
         <activity
             android:name=".SelectSpace"
@@ -37,7 +52,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".SelectLogin"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

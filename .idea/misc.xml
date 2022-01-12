@@ -12,11 +12,15 @@
         <entry key="..\:/MyFirstApp/app/src/main/res/drawable/boiler_resize.xml" value="0.26979166666666665" />
         <entry key="..\:/MyFirstApp/app/src/main/res/drawable/button_addspace.xml" value="0.26979166666666665" />
         <entry key="..\:/MyFirstApp/app/src/main/res/drawable/button_emptybtn.xml" value="0.26979166666666665" />
+        <entry key="..\:/MyFirstApp/app/src/main/res/drawable/button_emptygray.xml" value="0.26979166666666665" />
         <entry key="..\:/MyFirstApp/app/src/main/res/drawable/button_emptyorange.xml" value="0.26979166666666665" />
         <entry key="..\:/MyFirstApp/app/src/main/res/drawable/button_solidgray.xml" value="0.26979166666666665" />
         <entry key="..\:/MyFirstApp/app/src/main/res/drawable/button_solidorange.xml" value="0.26979166666666665" />
         <entry key="..\:/MyFirstApp/app/src/main/res/drawable/dressroom_resize.xml" value="0.26979166666666665" />
+        <entry key="..\:/MyFirstApp/app/src/main/res/drawable/ic_account_box.xml" value="0.26979166666666665" />
+        <entry key="..\:/MyFirstApp/app/src/main/res/drawable/ic_baseline_mail_24.xml" value="0.26979166666666665" />
         <entry key="..\:/MyFirstApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26979166666666665" />
+        <entry key="..\:/MyFirstApp/app/src/main/res/drawable/ic_lock.xml" value="0.26979166666666665" />
         <entry key="..\:/MyFirstApp/app/src/main/res/drawable/kitchen_resize.xml" value="0.26979166666666665" />
         <entry key="..\:/MyFirstApp/app/src/main/res/drawable/livingroom_resize.xml" value="0.26979166666666665" />
         <entry key="..\:/MyFirstApp/app/src/main/res/drawable/livingroom_xml.xml" value="0.26979166666666665" />
@@ -31,8 +35,13 @@
         <entry key="..\:/MyFirstApp/app/src/main/res/layout/activity_main5.xml" value="0.264" />
         <entry key="..\:/MyFirstApp/app/src/main/res/layout/activity_main6.xml" value="0.25364583333333335" />
         <entry key="..\:/MyFirstApp/app/src/main/res/layout/activity_main7.xml" value="0.25364583333333335" />
+        <entry key="..\:/MyFirstApp/app/src/main/res/layout/activity_select_login.xml" value="0.25364583333333335" />
         <entry key="..\:/MyFirstApp/app/src/main/res/layout/activity_select_space.xml" value="0.25364583333333335" />
         <entry key="..\:/MyFirstApp/app/src/main/res/layout/activity_signup.xml" value="0.264" />
+        <entry key="..\:/MyFirstApp/app/src/main/res/layout/activity_signup1.xml" value="0.264" />
+        <entry key="..\:/MyFirstApp/app/src/main/res/layout/activity_signup2.xml" value="0.264" />
+        <entry key="..\:/MyFirstApp/app/src/main/res/layout/activity_signup3.xml" value="0.2390625" />
+        <entry key="..\:/MyFirstApp/app/src/main/res/layout/activity_signup4.xml" value="0.25364583333333335" />
         <entry key="..\:/MyFirstApp/app/src/main/res/layout/recycle_detail.xml" value="0.2" />
         <entry key="..\:/MyFirstApp/app/src/main/res/layout/recycle_item.xml" value="0.1" />
         <entry key="..\:/MyFirstApp/app/src/main/res/layout/space_item.xml" value="0.25364583333333335" />

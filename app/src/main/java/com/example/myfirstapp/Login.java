@@ -8,8 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -26,7 +24,7 @@ public class Login extends AppCompatActivity {
         id = findViewById(R.id.loginId);
         password = findViewById(R.id.loginPassword);
         btn_login = findViewById(R.id.button_login);
-        btn_findPassword = findViewById(R.id.button_findPassword);
+//        btn_findPassword = findViewById(R.id.button_findPassword);
         btn_signup = findViewById(R.id.button_signup);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -43,7 +41,7 @@ public class Login extends AppCompatActivity {
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Signup.class);
+                Intent intent = new Intent(getApplicationContext(), Signup1.class);
                 startActivity(intent);
             }
         });

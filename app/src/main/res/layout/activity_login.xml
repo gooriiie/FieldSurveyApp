@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
     android:paddingTop="15dp"
     tools:context=".Login">
 
@@ -42,7 +42,6 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/black"
@@ -67,10 +66,7 @@
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
 
-
-
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/black"
@@ -113,48 +109,7 @@
                 android:layout_marginBottom="10dp"
                 android:text="로그인" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginBottom="10dp"
-                android:includeFontPadding="false"
-                android:text="Or" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:includeFontPadding="false"
-                android:textColor="#000000"
-                android:backgroundTint="@color/yellow"
-                android:text="카카오톡으로 시작하기" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="10">
-
-                <Button
-                    android:id="@+id/button_findPassword"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:gravity="center"
-                    android:textColor="@color/gray2"
-                    android:background="@color/invisible"
-                    android:text="비밀번호 찾기" />
-
-                <Button
-                    android:id="@+id/button_signup"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:gravity="center"
-                    android:textColor="@color/blue"
-                    android:background="@color/invisible"
-                    android:text="회원가입" />
-            </LinearLayout>
 
         </LinearLayout>
 
