@@ -55,11 +55,11 @@
                 app:endIconMode="clear_text">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/loginId"
+                    android:id="@+id/loginEmail"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:includeFontPadding="false"
-                    android:hint="아이디"
+                    android:hint="이메일"
                     android:inputType="text"
                     android:textCursorDrawable="@color/blue">
 
