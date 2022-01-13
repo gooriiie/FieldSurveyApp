@@ -14,7 +14,7 @@ import com.google.android.material.textfield.TextInputEditText;
 public class Login extends AppCompatActivity {
 
     TextInputEditText id, password;
-    Button btn_login, btn_findPassword, btn_signup;
+    Button btn_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,6 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.loginPassword);
         btn_login = findViewById(R.id.button_login);
 //        btn_findPassword = findViewById(R.id.button_findPassword);
-        btn_signup = findViewById(R.id.button_signup);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,21 +34,6 @@ public class Login extends AppCompatActivity {
 //                intent.putExtra("id", id.getText().toString());
 //                intent.putExtra("password", password.getText().toString());
 //                startActivity(intent);
-            }
-        });
-
-        btn_signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Signup1.class);
-                startActivity(intent);
-            }
-        });
-
-        btn_findPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                FindPassword로 intent
             }
         });
     }

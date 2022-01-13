@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:includeFontPadding="false"
-            android:text="6~12자 사이의 영문/숫자로 가능합니다"
+            android:text="비밀번호는 6자 이상 15자 이하만 가능합니다"
             android:textColor="@color/gray3"
             android:textSize="15sp" />
     </LinearLayout>

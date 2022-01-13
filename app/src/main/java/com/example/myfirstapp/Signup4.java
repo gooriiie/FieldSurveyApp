@@ -15,9 +15,9 @@ import com.google.android.material.textfield.TextInputEditText;
 public class Signup4 extends AppCompatActivity {
 
     LinearLayout signupLayout4;
-    Button btn_nextSignup5;
+    Button btn_nextSignup3;
     TextInputEditText editTextName;
-    String email, password, phoneNumber, name;
+    String email, password, name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +27,9 @@ public class Signup4 extends AppCompatActivity {
         Intent intent = getIntent();
         email = intent.getStringExtra("email").toString();
         password = intent.getStringExtra("password").toString();
-        phoneNumber = intent.getStringExtra("phoneNumber").toString();
 
         signupLayout4 = findViewById(R.id.signupLayout4);
-        btn_nextSignup5 = findViewById(R.id.button_nextSignup5);
+        btn_nextSignup3 = findViewById(R.id.button_nextSignup3);
         editTextName = findViewById(R.id.editTextName);
 
         signupLayout4.setOnClickListener(new View.OnClickListener() {
@@ -40,14 +39,13 @@ public class Signup4 extends AppCompatActivity {
             }
         });
 
-        btn_nextSignup5.setOnClickListener(new View.OnClickListener() {
+        btn_nextSignup3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 name = editTextName.getText().toString();
-                Intent intent = new Intent(getApplicationContext(), Signup5.class);
+                Intent intent = new Intent(getApplicationContext(), Signup3.class);
                 intent.putExtra("email", email);
                 intent.putExtra("password", password);
-                intent.putExtra("phoneNumber", phoneNumber);
                 intent.putExtra("name", name);
                 startActivity(intent);
             }

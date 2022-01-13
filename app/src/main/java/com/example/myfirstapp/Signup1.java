@@ -1,17 +1,23 @@
 package com.example.myfirstapp;
 
+import static android.widget.Toast.makeText;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.regex.Pattern;
 
 public class Signup1 extends AppCompatActivity {
 
@@ -40,9 +46,16 @@ public class Signup1 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 email = editTextEmail.getText().toString();
-                Intent intent = new Intent(getApplicationContext(), Signup2.class);
-                intent.putExtra("email", email);
-                startActivity(intent);
+                Pattern emailPattern = Patterns.EMAIL_ADDRESS;
+                if (!emailPattern.matcher(email).matches()) {
+                    makeText(getApplicationContext(), "이메일형식이 올바르지 않습니다.", Toast.LENGTH_SHORT).show();
+                    editTextEmail.requestFocus();
+                } else {
+                    Intent intent = new Intent(getApplicationContext(), Signup2.class);
+                    intent.putExtra("email", email);
+                    startActivity(intent);
+                }
+
             }
         });
 

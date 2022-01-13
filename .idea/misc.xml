@@ -42,6 +42,7 @@
         <entry key="..\:/MyFirstApp/app/src/main/res/layout/activity_signup2.xml" value="0.264" />
         <entry key="..\:/MyFirstApp/app/src/main/res/layout/activity_signup3.xml" value="0.2390625" />
         <entry key="..\:/MyFirstApp/app/src/main/res/layout/activity_signup4.xml" value="0.25364583333333335" />
+        <entry key="..\:/MyFirstApp/app/src/main/res/layout/activity_signup5.xml" value="0.25364583333333335" />
         <entry key="..\:/MyFirstApp/app/src/main/res/layout/recycle_detail.xml" value="0.2" />
         <entry key="..\:/MyFirstApp/app/src/main/res/layout/recycle_item.xml" value="0.1" />
         <entry key="..\:/MyFirstApp/app/src/main/res/layout/space_item.xml" value="0.25364583333333335" />
@@ -53,5 +54,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.25364583333333335" />
+      </ProjectState>
+    </option>
   </component>
 </project>

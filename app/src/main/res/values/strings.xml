@@ -10,8 +10,10 @@
     <string name="signup">회원가입</string>
     <string name="logo">No-title</string>
     <string name="check_id">중복체크</string>
+    <string name="certification">인증하기</string>
     <string name="plz_email">이메일을 입력해주세요</string>
     <string name="plz_password">비밀번호를 입력해주세요</string>
-    <string name="plz_phonenumber">휴대폰 번호를 입력해주세요</string>
+    <string name="plz_phonenumber">휴대폰번호를 입력해주세요</string>
     <string name="plz_name">이름을 입력해주세요</string>
+    <string name="plz_certificationnumber">인증번호를 입력해주세요</string>
 </resources>

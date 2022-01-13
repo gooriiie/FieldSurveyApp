@@ -1,5 +1,8 @@
 package com.example.myfirstapp;
 
+import static android.widget.Toast.makeText;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -9,28 +12,56 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthOptions;
+import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Signup3 extends AppCompatActivity {
 
+    private FirebaseAuth auth;
+    private FirebaseFirestore db;
+
     LinearLayout signupLayout3;
-    Button btn_nextSignup4;
-    TextInputEditText editTextPhoneNumber;
-    String email, password, phoneNumber;
+    Button btn_certification, btn_certificationRequest;
+    TextInputEditText editTextPhoneNumber, editTextCertificationNumber;
+    String email, password, phoneNumber, name, certificationNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup3);
 
+        auth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+
         Intent intent = getIntent();
         email = intent.getStringExtra("email").toString();
         password = intent.getStringExtra("password").toString();
+        name = intent.getStringExtra("name").toString().trim();
 
         signupLayout3 = findViewById(R.id.signupLayout3);
-        btn_nextSignup4 = findViewById(R.id.button_nextSignup4);
+        btn_certification = findViewById(R.id.button_certification);
         editTextPhoneNumber = findViewById(R.id.editTextPhoneNumber);
+        editTextCertificationNumber = findViewById(R.id.editTextCertificationNumber);
+        btn_certificationRequest = findViewById(R.id.button_certificationRequest);
 
         signupLayout3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,17 +70,70 @@ public class Signup3 extends AppCompatActivity {
             }
         });
 
-        btn_nextSignup4.setOnClickListener(new View.OnClickListener() {
+        // 인증 요청 버튼 클릭
+        btn_certificationRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                phoneNumber = editTextPhoneNumber.getText().toString();
-                Intent intent = new Intent(getApplicationContext(), Signup4.class);
-                intent.putExtra("email", email);
-                intent.putExtra("password", password);
-                intent.putExtra("phoneNumber", phoneNumber);
-                startActivity(intent);
+                if (isValidPhoneNumber(editTextPhoneNumber.getText().toString())) {
+                    // 휴대폰 인증 과정
+                    phoneNumber = editTextPhoneNumber.getText().toString().trim();
+                } else {
+                    makeText(getApplicationContext(), "휴대폰번호 형식에 맞지 않습니다", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
+        // 인증하기 버튼 클릭 (다음 화면으로 넘어감)
+        btn_certification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                auth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(Signup3.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    String uid = auth.getCurrentUser().getUid();
+                                    Map<String, String> user = new HashMap<>();
+                                    user.put("이름", name);
+                                    user.put("이메일", email);
+                                    user.put("비밀번호", password);
+                                    user.put("휴대폰번호", phoneNumber);
+
+                                    db.collection("users").document(uid)
+                                            .set(user, SetOptions.merge())
+                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void unused) {
+                                                    Intent intent = new Intent(getApplicationContext(), Signup5.class);
+                                                    startActivity(intent);
+                                                    finish();
+                                                }
+                                            })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    makeText(getApplicationContext(), "사용자를 추가하는데 실패했습니다.", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+                                } else {
+                                    makeText(getApplicationContext(), "회원가입에 실패했습니다", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+            }
+        });
+    }
+
+    boolean isValidPhoneNumber(String phoneNumber) {
+        String regex = "\\d{11}";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(phoneNumber);
+        if (matcher.matches()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     void hideKeyboard() {
@@ -58,4 +142,5 @@ public class Signup3 extends AppCompatActivity {
             inputManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
+
 }
