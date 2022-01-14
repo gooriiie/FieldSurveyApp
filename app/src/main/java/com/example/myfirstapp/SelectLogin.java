@@ -20,11 +20,11 @@ public class SelectLogin extends AppCompatActivity {
         setContentView(R.layout.activity_select_login);
 
         // 자동로그인에 필요한 기능. SharedPreference 나중에 수정해야할 부분
-        email = My_Shared_Preference.getUserEmail(getApplicationContext());
-        password = My_Shared_Preference.getUserPassword(getApplicationContext());
-        if (email != null && password != null) {
-            new Login().login(email, password);
-        }
+//        email = My_Shared_Preference.getUserEmail(getApplicationContext());
+//        password = My_Shared_Preference.getUserPassword(getApplicationContext());
+//        if (email != null && password != null) {
+//            new Login().login(email, password);
+//        }
 
         btn_emailLogin = findViewById(R.id.button_emailLogin);
         btn_signup = findViewById(R.id.button_signup);

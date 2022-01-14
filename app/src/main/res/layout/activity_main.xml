@@ -8,81 +8,99 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:paddingLeft="30dp"
-        android:paddingRight="20dp">
+        android:layout_weight="9"
+        android:orientation="vertical"/>
 
-<!--        <TextView-->
-<!--            android:id="@+id/textView"-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:paddingLeft="30dp"-->
+<!--        android:paddingRight="20dp">-->
+
+<!--&lt;!&ndash;        <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/textView"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="50dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_weight="4"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_gravity="center_vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:text="@string/menu_list"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textSize="25sp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textColor="#000000"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textStyle="bold"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:fontFamily="@font/noto_sans_kr_bold" />&ndash;&gt;-->
+
+<!--        <ImageView-->
 <!--            android:layout_width="0dp"-->
 <!--            android:layout_height="50dp"-->
-<!--            android:layout_weight="4"-->
+<!--            android:layout_weight="3"-->
+<!--            android:src="@drawable/img_spacelist"-->
+<!--            android:layout_gravity="center_vertical"/>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"></LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"></LinearLayout>-->
+
+<!--        <android.widget.Button-->
+<!--            android:id="@+id/button_addspace"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
 <!--            android:layout_gravity="center_vertical"-->
-<!--            android:text="@string/menu_list"-->
-<!--            android:textSize="25sp"-->
-<!--            android:textColor="#000000"-->
-<!--            android:textStyle="bold"-->
-<!--            android:fontFamily="@font/noto_sans_kr_bold" />-->
+<!--            android:layout_weight="3"-->
+<!--            android:background="@drawable/button_solidorange"-->
+<!--            android:fontFamily="@font/noto_sans_kr_family"-->
+<!--            android:text="@string/button_addspace"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textView" />-->
+<!--    </LinearLayout>-->
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="3"
-            android:src="@drawable/img_spacelist"
-            android:layout_gravity="center_vertical"/>
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:paddingLeft="20dp"-->
+<!--        android:paddingRight="20dp">-->
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"></LinearLayout>
+<!--        <EditText-->
+<!--            android:id="@+id/searchBar"-->
+<!--            android:hint="주소를 입력하세요."-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"></LinearLayout>
+<!--    </LinearLayout>-->
 
-        <android.widget.Button
-            android:id="@+id/button_addspace"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="3"
-            android:background="@drawable/button_solidorange"
-            android:fontFamily="@font/noto_sans_kr_family"
-            android:text="@string/button_addspace"
-            android:textColor="#FFFFFF"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-    </LinearLayout>
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/recyclerView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_weight="8"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/button_addspace" />-->
 
-    <LinearLayout
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_menu"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
-
-        <EditText
-            android:id="@+id/searchBar"
-            android:hint="주소를 입력하세요."
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_weight="8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_addspace" />
+        android:background="@color/orange"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_menu" />
 
 </LinearLayout>

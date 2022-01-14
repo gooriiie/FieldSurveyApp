@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/firstTab"
+        android:enabled="true"
+        android:title="현장목록"
+        android:icon="@drawable/ic_baseline_format_list_bulleted_24"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/secondTab"
+        android:enabled="true"
+        android:title="내정보"
+        android:icon="@drawable/ic_baseline_person_24"
+        app:showAsAction="always"/>
+</menu>
