@@ -30,6 +30,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 전체 Activity 순서
+ * 현장 추가 : main -> main2 -> select_space -> main4
+ * 현장 조회 : main -> main7 -> main5 -> select_space
+ * 회원가입 : signup1 -> signup2 -> signup4 -> signup3 -> signup5
+ */
 public class MainActivity extends AppCompatActivity  {
 
     SpaceListFragment spaceListFragment;
