@@ -3,16 +3,27 @@
     android:id="@+id/itemArea"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:paddingLeft="40dp"
+    android:paddingRight="40dp">
 
     <TextView
         android:id="@+id/spaceName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="40dp"
+        android:layout_weight="8"
         android:gravity="center_vertical"
         android:textSize="20sp"
         android:fontFamily="@font/noto_sans_kr_family"
-        android:includeFontPadding="false"
-        android:layout_marginLeft="40dp"/>
+        android:includeFontPadding="false"/>
+
+    <ImageView
+        android:id="@+id/saveCheck"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_weight="2"
+        android:layout_gravity="right"
+        android:visibility="invisible"
+        android:src="@drawable/ic_baseline_check_24"/>
 
 </LinearLayout>

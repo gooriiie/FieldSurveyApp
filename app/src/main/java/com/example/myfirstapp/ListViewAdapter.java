@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.Space;
 import android.widget.TextView;
 
@@ -17,6 +18,9 @@ import java.util.List;
 public class ListViewAdapter extends BaseAdapter {
 
     private List<SpaceItem> itemList = new ArrayList<>();
+    private List<String> visibleItemList = new ArrayList<>();
+    private List<String> invisibleItemList = new ArrayList<>();
+
 
     public ListViewAdapter() {
 
@@ -26,6 +30,18 @@ public class ListViewAdapter extends BaseAdapter {
         for (String l : list) {
             SpaceItem item = new SpaceItem(l);
             itemList.add(item);
+        }
+    }
+
+    public void addVisibleItem(List<String> list) {
+        for (String l : list) {
+            visibleItemList.add(l);
+        }
+    }
+
+    public void addInvisibleItem(List<String> list) {
+        for (String l : list) {
+            invisibleItemList.add(l);
         }
     }
 
@@ -56,8 +72,16 @@ public class ListViewAdapter extends BaseAdapter {
         }
 
         TextView tv_name = (TextView) view.findViewById(R.id.spaceName);
+        ImageView img = (ImageView) view.findViewById(R.id.saveCheck);
 
         SpaceItem spaceItem = itemList.get(i);
+
+        if (visibleItemList.contains(spaceItem.getName())) {
+            img.setVisibility(View.VISIBLE);
+        } else {
+            img.setVisibility(View.INVISIBLE);
+        }
+
 
         tv_name.setText(spaceItem.getName());
 

@@ -16,23 +16,24 @@
         android:paddingLeft="30dp"
         android:paddingRight="20dp">
 
-<!--        <TextView-->
-<!--            android:id="@+id/textView10"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="center_vertical"-->
-<!--            android:layout_weight="4"-->
-<!--            android:text="@string/menu_detail"-->
-<!--            android:textSize="20sp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:layout_marginLeft="10dp" />-->
-
-        <ImageView
+        <TextView
+            android:id="@+id/textView10"
             android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="5"
-            android:src="@drawable/img_spaceinfo"
-            android:layout_gravity="center_vertical"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="4"
+            android:text="@string/menu_detail"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:includeFontPadding="false"/>
+
+<!--        <ImageView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_weight="5"-->
+<!--            android:src="@drawable/img_spaceinfo"-->
+<!--            android:layout_gravity="center_vertical"/>-->
 
         <LinearLayout
             android:layout_width="0dp"
@@ -52,9 +53,9 @@
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
             android:includeFontPadding="false"
+            android:textColor="@color/black"
             android:textSize="18sp" />
 
         <View
