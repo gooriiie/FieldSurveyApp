@@ -20,10 +20,10 @@
     <ImageView
         android:id="@+id/saveCheck"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:layout_weight="2"
-        android:layout_gravity="right"
+        android:layout_gravity="center_vertical|right"
         android:visibility="invisible"
-        android:src="@drawable/ic_baseline_check_24"/>
+        android:src="@drawable/ic_baseline_check_circle_outline_24"/>
 
 </LinearLayout>

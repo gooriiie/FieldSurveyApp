@@ -1,5 +1,7 @@
 package com.example.myfirstapp;
 
+import static android.widget.Toast.makeText;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.Space;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -76,16 +79,26 @@ public class ListViewAdapter extends BaseAdapter {
 
         SpaceItem spaceItem = itemList.get(i);
 
-        if (visibleItemList.contains(spaceItem.getName())) {
-            img.setVisibility(View.VISIBLE);
-        } else {
+//        if (visibleItemList.contains(spaceItem.getName())) {
+//            img.setVisibility(View.VISIBLE);
+//        } else {
+//            img.setVisibility(View.INVISIBLE);
+//        }
+
+        boolean ck = false;
+
+        for (String vi : visibleItemList) {
+            if (vi.contains(spaceItem.getName())) {
+                img.setVisibility(View.VISIBLE);
+                ck = true;
+                break;
+            }
+        }
+        if (!ck) {
             img.setVisibility(View.INVISIBLE);
         }
 
-
         tv_name.setText(spaceItem.getName());
-
-
 
         return view;
     }
