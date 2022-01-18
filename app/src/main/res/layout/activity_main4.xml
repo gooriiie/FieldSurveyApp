@@ -852,9 +852,9 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_weight="2"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1.5"
+        android:orientation="horizontal">
 
         <android.widget.Button
             android:id="@+id/button_add"
@@ -862,19 +862,21 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:background="@drawable/button_solidorange"
-            android:textColor="#FFFFFF"
-            android:text="추가하기" />
+            android:text="추가하기"
+            android:textColor="#FFFFFF" />
+
         <View
             android:layout_width="10dp"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp" />
+
         <android.widget.Button
             android:id="@+id/button_add_withOtherName"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:background="@drawable/button_emptyorange"
-            android:textColor="#FF7800"
-            android:text="다른 이름으로 공간 추가하기" />
+            android:text="다른 이름으로 공간 추가하기"
+            android:textColor="#FF7800" />
     </LinearLayout>
 
 </LinearLayout>

@@ -79,6 +79,8 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
 
     String switchCorp = "";
 
+    boolean ck = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,11 +105,12 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
         switchSpin = ArrayAdapter.createFromResource(this, R.array.spinner_switch_corp, android.R.layout.simple_spinner_dropdown_item);
         switchSpin.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         switchSpinner.setAdapter(switchSpin);
-        switchSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+        switchSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 switchCorp = switchSpin.getItem(i).toString();
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -431,7 +434,7 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.button_scrollTo_switchLine:
-                sv.scrollTo(0,0);
+                sv.scrollTo(0, 0);
                 break;
             case R.id.button_scrollTo_socketLine:
                 sv.scrollTo(0, 750);
@@ -449,43 +452,50 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                 Map<String, Integer> part = new HashMap<>();
 
                 _switch.forEach((key, value) -> {
-                    if(value > 0) {
+                    if (value > 0) {
                         String tmp = "(" + switchCorp + ") " + key;
                         part.put(tmp, value);
+                        ck = true;
                     }
                 });
 
                 _socket.forEach((key, value) -> {
-                    if(value > 0) {
+                    if (value > 0) {
                         part.put(key, value);
+                        ck = true;
                     }
                 });
 
-                room.put(getRoom, part);
-                room.put("닉네임", getNickName);
+                if (!ck) {
+                    makeText(getApplicationContext(), "아무 수량이 없습니다.", Toast.LENGTH_SHORT).show();
+                } else {
+                    room.put(getRoom, part);
+                    room.put("닉네임", getNickName);
 
-                db.collection("addresses").document(getAddress)
-                        .set(room, SetOptions.merge())
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                makeText(getApplicationContext(), getRoom + "을 추가했습니다.", Toast.LENGTH_SHORT).show();
+                    db.collection("addresses").document(getAddress)
+                            .set(room, SetOptions.merge())
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    makeText(getApplicationContext(), getRoom + "을 추가했습니다.", Toast.LENGTH_SHORT).show();
 
 //                                intent activity3 추가
 //                                Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
-                                Intent intent = new Intent(getApplicationContext(), SelectSpace.class);
-                                intent.putExtra("address", getAddress);
-                                intent.putExtra("nickName", getNickName);
-                                startActivity(intent);
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                makeText(getApplicationContext(), "추가하는데 실패했습니다.", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                                    Intent intent = new Intent(getApplicationContext(), SelectSpace.class);
+                                    intent.putExtra("address", getAddress);
+                                    intent.putExtra("nickName", getNickName);
+                                    startActivity(intent);
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    makeText(getApplicationContext(), "추가하는데 실패했습니다.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
                 break;
+
             case R.id.button_add_withOtherName:
                 AlertDialog.Builder ad = new AlertDialog.Builder(MainActivity4.this);
                 ad.setIcon(R.mipmap.ic_launcher);
@@ -504,14 +514,14 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                         Map<String, Integer> part2 = new HashMap<>();
 
                         _switch.forEach((key, value) -> {
-                            if(value > 0) {
+                            if (value > 0) {
                                 String tmp = "(" + switchCorp + ") " + key;
                                 part2.put(tmp, value);
                             }
                         });
 
                         _socket.forEach((key, value) -> {
-                            if(value > 0) {
+                            if (value > 0) {
                                 part2.put(key, value);
                             }
                         });
@@ -550,9 +560,7 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                         dialogInterface.dismiss();
                     }
                 });
-
                 ad.show();
-
 
                 break;
         }
