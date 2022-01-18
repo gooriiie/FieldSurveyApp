@@ -25,7 +25,6 @@ public class MainActivity7 extends AppCompatActivity {
     Map<String, Integer> resultSum;
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main7);

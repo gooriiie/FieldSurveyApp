@@ -85,10 +85,6 @@ public class SpaceListFragment extends Fragment implements TextWatcher {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-        //
-
-
     }
 
     @Override
@@ -99,8 +95,6 @@ public class SpaceListFragment extends Fragment implements TextWatcher {
 
         ctx = container.getContext();
         auth = FirebaseAuth.getInstance();
-
-        makeText(ctx, auth.getCurrentUser().getEmail().toString(), Toast.LENGTH_SHORT).show();
 
         recyclerView = mainView.findViewById(R.id.recyclerView);
         mLayoutManager = new LinearLayoutManager(ctx);

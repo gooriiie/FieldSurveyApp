@@ -32,31 +32,29 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity  {
 
-//    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-//    private FirebaseAuth auth;
-//
     SpaceListFragment spaceListFragment;
-//
-//    RecyclerView recyclerView;
-//    LinearLayoutManager mLayoutManager;
-//    ItemAdapter adapter;
-//    List<Item> itemList;
+    MyPageFragment myPageFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //
         spaceListFragment = new SpaceListFragment();
+        myPageFragment = new MyPageFragment();
+
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, spaceListFragment).commit();
         BottomNavigationView bottom_menu = findViewById(R.id.bottom_menu);
+
         bottom_menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.firstTab:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, spaceListFragment).commit();
+                        return true;
+                    case R.id.secondTab:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, myPageFragment).commit();
                         return true;
                 }
                 return false;

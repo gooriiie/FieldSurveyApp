@@ -107,12 +107,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> im
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    int pos = getAdapterPosition();
+                    int pos = getLayoutPosition();
                     if (pos != RecyclerView.NO_POSITION) {
                         Intent intent = new Intent(ctx, MainActivity7.class);
 
-                        intent.putExtra("address", items.get(pos).getAddress());
-                        intent.putExtra("nickName", items.get(pos).getNickName());
+                        intent.putExtra("address", tv_address.getText().toString());
+                        intent.putExtra("nickName", tv_nickName.getText().toString());
 
                         ctx.startActivity(intent);
                     }

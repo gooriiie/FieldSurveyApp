@@ -40,7 +40,7 @@ public class Login extends AppCompatActivity {
         email = auto.getString("email", null);
         password = auto.getString("password", null);
 
-        // 수정할부분 SharedPreferences clear도 구현해야함
+//         수정할부분 SharedPreferences clear도 구현해야함
         if ((email != null) && (password != null)) {
             login(email, password);
         } else {
@@ -66,6 +66,10 @@ public class Login extends AppCompatActivity {
                 currentUser = auth.getCurrentUser();
                 if (currentUser != null) {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Intent intent = new Intent(getApplicationContext(), SelectLogin.class);
                     startActivity(intent);
                     finish();
                 }
