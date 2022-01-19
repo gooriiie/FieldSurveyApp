@@ -21,8 +21,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 
@@ -449,13 +453,15 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
             // 추가하기 버튼 눌렀을 경우
             case R.id.button_add:
                 Map<String, Object> room = new HashMap<>();
-                Map<String, Integer> part = new HashMap<>();
+                Map<String, Object> part = new HashMap<>();
 
                 _switch.forEach((key, value) -> {
+                    String tmp = "(" + switchCorp + ") " + key;
                     if (value > 0) {
-                        String tmp = "(" + switchCorp + ") " + key;
                         part.put(tmp, value);
                         ck = true;
+                    } else if (value == 0) {
+                        part.put(tmp, FieldValue.delete());
                     }
                 });
 
@@ -463,6 +469,8 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                     if (value > 0) {
                         part.put(key, value);
                         ck = true;
+                    } else if (value == 0) {
+                        part.put(key, FieldValue.delete());
                     }
                 });
 
@@ -511,20 +519,44 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                         String result = et.getText().toString();
                         getRoom += " (" + result + ")";
                         Map<String, Object> room2 = new HashMap<>();
-                        Map<String, Integer> part2 = new HashMap<>();
+                        Map<String, Object> part2 = new HashMap<>();
 
                         _switch.forEach((key, value) -> {
+                            String tmp = "(" + switchCorp + ") " + key;
                             if (value > 0) {
-                                String tmp = "(" + switchCorp + ") " + key;
                                 part2.put(tmp, value);
+                            } else if (value == 0) {
+                                part2.put(tmp, FieldValue.delete());
                             }
                         });
 
                         _socket.forEach((key, value) -> {
                             if (value > 0) {
                                 part2.put(key, value);
+                            } else if (value == 0) {
+                                part2.put(key, FieldValue.delete());
                             }
                         });
+
+//                        db.collection("addresses").document(getAddress)
+//                                .get()
+//                                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//                                    @Override
+//                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                                        if (task.isSuccessful()) {
+//                                            DocumentSnapshot document = task.getResult();
+//                                            if (document.exists()) {
+//                                                Map<String, Object> data = document.getData();
+//                                                for (String r : data.keySet()) {
+//                                                    if (getRoom.contains(r)) {
+//
+//                                                    }
+//                                                }
+//                                            }
+//                                        }
+//                                    }
+//                                });
+
 
                         room2.put(getRoom, part2);
                         room2.put("닉네임", getNickName);
