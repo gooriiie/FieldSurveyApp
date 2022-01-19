@@ -63,7 +63,7 @@
             android:includeFontPadding="false"
             android:textSize="35sp"
             android:textStyle="bold"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent" />
     </LinearLayout>
 
@@ -97,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="50dp"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:includeFontPadding="false"
                 android:text="닉네임" />
 
@@ -127,7 +127,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="72dp"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:includeFontPadding="false"
                 android:text="시"
                 app:layout_constraintStart_toStartOf="parent"
@@ -157,7 +157,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="72dp"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:includeFontPadding="false"
                 android:text="구"
                 app:layout_constraintStart_toStartOf="parent"
@@ -187,7 +187,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="72dp"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:includeFontPadding="false"
                 android:text="동"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -216,7 +216,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="50dp"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:includeFontPadding="false"
                 android:text="상세주소"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -247,7 +247,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_solidorange"
                 android:text="@string/button_next"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dong" />
         </LinearLayout>

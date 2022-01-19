@@ -866,7 +866,7 @@
             android:layout_gravity="center_vertical"
             android:background="@drawable/button_solidorange"
             android:text="추가하기"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/white" />
 
         <View
             android:layout_width="10dp"
@@ -879,7 +879,7 @@
             android:layout_gravity="center_vertical"
             android:background="@drawable/button_emptyorange"
             android:text="다른 이름으로 공간 추가하기"
-            android:textColor="#FF7800" />
+            android:textColor="@color/orange" />
     </LinearLayout>
 
 </LinearLayout>

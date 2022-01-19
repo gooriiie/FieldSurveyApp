@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -60,6 +61,7 @@ public class MainActivity5 extends AppCompatActivity {
 
                                     TextView roomName = new TextView(getApplicationContext());
                                     roomName.setText("✔ " + r);
+                                    roomName.setTextColor(Color.BLACK);
                                     roomName.setTextSize(20);
                                     roomName.setTypeface(null, Typeface.BOLD);
 
