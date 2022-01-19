@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Space;
@@ -38,6 +39,7 @@ public class SelectSpace extends AppCompatActivity {
     String getAddress;
     String getNickName;
     ListViewAdapter adapter;
+    Button btn_main;
 
     List<String> spaces = Arrays.asList("거실", "주방", "침실1", "침실2", "침실3", "욕실1", "욕실2", "펜트리", "실외기실");
     List<String> visibleSpace, invisibleSpace;
@@ -49,6 +51,8 @@ public class SelectSpace extends AppCompatActivity {
 
         visibleSpace = new ArrayList<>();
         invisibleSpace = new ArrayList<>();
+
+        btn_main = findViewById(R.id.button_main);
 
         Intent intent = getIntent();
         getAddress = intent.getStringExtra("address");
@@ -112,6 +116,14 @@ public class SelectSpace extends AppCompatActivity {
                 intent.putExtra("nickName", getNickName);
                 intent.putExtra("room", item.getName());
 
+                startActivity(intent);
+            }
+        });
+
+        btn_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
         });

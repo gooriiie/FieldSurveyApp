@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">MyFirstApp</string>
-    <string name="menu_list">현장 목록</string>
-    <string name="menu_detail">현장 세부정보</string>
-    <string name="button_addspace">+ 현장 추가</string>
-    <string name="menu_addspace">현장 추가</string>
+    <string name="menu_list">프로젝트 목록</string>
+    <string name="menu_detail">프로젝트 세부정보</string>
+    <string name="button_addspace">+ 프로젝트 추가</string>
+    <string name="menu_addspace">프로젝트 추가</string>
     <string name="select_address">주소를 선택해주세요.</string>
     <string name="input_nickname">닉네임을 입력해주세요.</string>
     <string name="button_next">다음으로</string>
@@ -17,6 +17,7 @@
     <string name="plz_phonenumber">휴대폰번호를 입력해주세요</string>
     <string name="plz_name">이름을 입력해주세요</string>
     <string name="plz_certificationnumber">인증번호를 입력해주세요</string>
+    <string name="move_main">메인으로</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

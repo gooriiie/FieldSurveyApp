@@ -36,7 +36,8 @@ import java.util.Map;
  * 현장 조회 : main -> main7 -> main5 -> select_space
  * 회원가입 : signup1 -> signup2 -> signup4 -> signup3 -> signup5
  */
-public class MainActivity extends AppCompatActivity  {
+
+public class MainActivity extends AppCompatActivity {
 
     SpaceListFragment spaceListFragment;
     MyPageFragment myPageFragment;
@@ -66,70 +67,6 @@ public class MainActivity extends AppCompatActivity  {
                 return false;
             }
         });
-        //
-//        auth = FirebaseAuth.getInstance();
-//
-//        makeText(getApplicationContext(), auth.getCurrentUser().getEmail().toString(), Toast.LENGTH_SHORT).show();
-//
-//        recyclerView = findViewById(R.id.recyclerView);
-//        mLayoutManager = new LinearLayoutManager(getApplicationContext());
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(mLayoutManager);
-//        itemList = new ArrayList<Item>();
-//
-//        EditText searchBar = findViewById(R.id.searchBar);
-//
-//        searchBar.addTextChangedListener(this);
-//
-//        adapter = new ItemAdapter(this, itemList);
-//
-//        // FireStore에서 주소 불러오기
-//        db.collection("addresses")
-//                .get()
-//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        if (task.isSuccessful()) {
-//                            for (QueryDocumentSnapshot document : task.getResult()) {
-//                                String eachNickName = "";
-//
-//                                Map<String, Object> data = document.getData();
-//                                for (String r : data.keySet()) {
-//                                    if (r.equals("닉네임")) {
-//                                        eachNickName = (String) data.get(r);
-//                                        break;
-//                                    }
-//                                }
-//                                Item rc = new Item(eachNickName, document.getId());
-//                                itemList.add(rc);
-//                                recyclerView.setAdapter(adapter);
-//                            }
-//                        }
-//                    }
-//                });
-//
-//        Button button_addspace = findViewById(R.id.button_addspace);
-//        button_addspace.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
-//                startActivity(intent);
-//            }
-//        });
-    }
 
-//    @Override
-//    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//    }
-//
-//    @Override
-//    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//        adapter.getFilter().filter(charSequence.toString());
-//    }
-//
-//    @Override
-//    public void afterTextChanged(Editable editable) {
-//
-//    }
+    }
 }

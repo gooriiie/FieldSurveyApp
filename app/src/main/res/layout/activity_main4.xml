@@ -10,34 +10,35 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:layout_marginTop="10dp"
+        android:layout_weight="1"
         android:orientation="horizontal"
         android:paddingLeft="30dp"
         android:paddingRight="20dp">
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="4"
-            android:src="@drawable/img_addspace"
-            android:layout_gravity="center_vertical"/>
+<!--        <ImageView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:layout_weight="4"-->
+<!--            android:src="@drawable/img_addspace" />-->
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="6"
+            android:textColor="@color/black"
+            android:includeFontPadding="false"
+            android:text="@string/menu_addspace"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="7" />
-
-<!--        <TextView-->
-<!--            android:id="@+id/textView7"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="6"-->
-<!--            android:layout_gravity="center_vertical"-->
-<!--            android:text="@string/menu_addspace"-->
-<!--            android:textSize="20sp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:layout_marginLeft="10dp" />-->
+            android:layout_weight="4" />
     </LinearLayout>
 
     <LinearLayout
@@ -70,9 +71,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:includeFontPadding="false"
             android:layout_marginLeft="35dp"
             android:gravity="center_vertical"
+            android:includeFontPadding="false"
             android:text="이동" />
 
         <android.widget.Button
@@ -80,33 +81,33 @@
             android:layout_width="75dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
-            android:includeFontPadding="false"
             android:layout_marginLeft="20dp"
             android:layout_weight="0"
-            android:text="스위치"
-            android:background="@drawable/button_emptyorange" />
+            android:background="@drawable/button_emptyorange"
+            android:includeFontPadding="false"
+            android:text="스위치" />
 
         <android.widget.Button
             android:id="@+id/button_scrollTo_socketLine"
             android:layout_width="75dp"
             android:layout_height="30dp"
-            android:includeFontPadding="false"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_weight="0"
-            android:text="콘센트"
-            android:background="@drawable/button_emptyorange" />
+            android:background="@drawable/button_emptyorange"
+            android:includeFontPadding="false"
+            android:text="콘센트" />
 
         <android.widget.Button
             android:id="@+id/button_scrollTo_sensorLine"
             android:layout_width="75dp"
             android:layout_height="30dp"
-            android:includeFontPadding="false"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:layout_weight="0"
-            android:text="감지기"
-            android:background="@drawable/button_emptyorange" />
+            android:background="@drawable/button_emptyorange"
+            android:includeFontPadding="false"
+            android:text="감지기" />
     </LinearLayout>
 
     <LinearLayout
@@ -122,19 +123,19 @@
             android:layout_width="75dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
-            android:includeFontPadding="false"
             android:layout_marginLeft="81dp"
             android:layout_weight="0"
-            android:text="조명"
-            android:background="@drawable/button_emptyorange" />
+            android:background="@drawable/button_emptyorange"
+            android:includeFontPadding="false"
+            android:text="조명" />
     </LinearLayout>
 
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6.3"
         android:layout_marginTop="10dp"
+        android:layout_weight="6.3"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
         tools:layout_editor_absoluteX="0dp">
 
@@ -168,8 +169,8 @@
                         android:id="@+id/switchSpinner"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="20dp"></Spinner>
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginBottom="5dp"></Spinner>
                 </LinearLayout>
 
                 <View
@@ -195,8 +196,8 @@
                         android:id="@+id/button_switch1minus"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_marginLeft="45dp"
                         android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="45dp"
                         android:layout_weight="0"
                         android:includeFontPadding="false"
                         android:text="-"
@@ -208,8 +209,8 @@
                         android:layout_width="25dp"
                         android:layout_height="20dp"
                         android:layout_gravity="center_vertical"
-                        android:includeFontPadding="false"
                         android:layout_marginLeft="50dp"
+                        android:includeFontPadding="false"
                         android:text="0" />
 
                     <Button
@@ -243,8 +244,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="-"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -263,8 +264,8 @@
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
                         android:layout_weight="0"
-                        android:text="+"
                         android:includeFontPadding="false"
+                        android:text="+"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
                 </LinearLayout>
@@ -287,8 +288,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="-"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -306,8 +307,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="+"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -331,8 +332,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="-"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -350,8 +351,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="+"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -375,8 +376,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="-"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -394,8 +395,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="+"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -419,8 +420,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="-"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -438,8 +439,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="+"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -458,10 +459,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="35dp"
                     android:layout_marginBottom="5dp"
+                    android:includeFontPadding="false"
                     android:text="콘센트"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:includeFontPadding="false"/>
+                    android:textStyle="bold" />
 
                 <View
                     android:layout_width="match_parent"
@@ -486,8 +487,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="-"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -505,8 +506,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="+"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -530,8 +531,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="-"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -549,8 +550,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="+"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -574,8 +575,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="-"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -593,8 +594,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="+"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -613,10 +614,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="35dp"
                     android:layout_marginBottom="5dp"
+                    android:includeFontPadding="false"
                     android:text="감지기"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:includeFontPadding="false"/>
+                    android:textStyle="bold" />
 
                 <View
                     android:layout_width="match_parent"
@@ -641,8 +642,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="-"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -660,8 +661,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="+"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -685,8 +686,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="-"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -704,8 +705,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="+"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -713,6 +714,7 @@
             </LinearLayout>
 
             // 조명 부분
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -725,10 +727,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="35dp"
                     android:layout_marginBottom="5dp"
+                    android:includeFontPadding="false"
                     android:text="조명"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:includeFontPadding="false"/>
+                    android:textStyle="bold" />
 
                 <View
                     android:layout_width="match_parent"
@@ -753,8 +755,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="-"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -772,12 +774,13 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="+"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -796,8 +799,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="-"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -815,8 +818,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="45dp"
-                        android:includeFontPadding="false"
                         android:layout_weight="0"
+                        android:includeFontPadding="false"
                         android:text="+"
                         android:textColor="@color/black"
                         app:backgroundTint="@color/gray" />
@@ -835,10 +838,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="35dp"
                     android:layout_marginBottom="5dp"
+                    android:includeFontPadding="false"
                     android:text="기타"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:includeFontPadding="false"/>
+                    android:textStyle="bold" />
 
                 <View
                     android:layout_width="match_parent"
