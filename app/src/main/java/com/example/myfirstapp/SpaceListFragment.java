@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -42,6 +43,7 @@ public class SpaceListFragment extends Fragment implements TextWatcher {
     private FirebaseAuth auth;
     private Context ctx;
 
+    SwipeRefreshLayout swipeRefreshLayout;
     RecyclerView recyclerView;
     LinearLayoutManager mLayoutManager;
     ItemAdapter adapter;
@@ -96,6 +98,7 @@ public class SpaceListFragment extends Fragment implements TextWatcher {
         ctx = container.getContext();
         auth = FirebaseAuth.getInstance();
 
+        swipeRefreshLayout = mainView.findViewById(R.id.swipeRefreshLayout);
         recyclerView = mainView.findViewById(R.id.recyclerView);
         mLayoutManager = new LinearLayoutManager(ctx);
         recyclerView.setHasFixedSize(true);
@@ -139,6 +142,39 @@ public class SpaceListFragment extends Fragment implements TextWatcher {
             public void onClick(View v) {
                 Intent intent = new Intent(ctx, MainActivity2.class);
                 startActivity(intent);
+            }
+        });
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                db.collection("addresses")
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                        String eachNickName = "";
+
+                                        Map<String, Object> data = document.getData();
+                                        for (String r : data.keySet()) {
+                                            if (r.equals("닉네임")) {
+                                                eachNickName = (String) data.get(r);
+                                                break;
+                                            }
+                                        }
+                                        Item rc = new Item(eachNickName, document.getId());
+                                        itemList.add(rc);
+                                        recyclerView.setAdapter(adapter);
+
+                                        swipeRefreshLayout.setRefreshing(false);
+                                        makeText(ctx.getApplicationContext(), "새로고침 완료", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
+                        });
+
             }
         });
 
