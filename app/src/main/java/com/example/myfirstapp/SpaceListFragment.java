@@ -148,6 +148,7 @@ public class SpaceListFragment extends Fragment implements TextWatcher {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                itemList.clear();
                 db.collection("addresses")
                         .get()
                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -166,6 +167,7 @@ public class SpaceListFragment extends Fragment implements TextWatcher {
                                         }
                                         Item rc = new Item(eachNickName, document.getId());
                                         itemList.add(rc);
+                                        adapter.notifyDataSetChanged();
                                         recyclerView.setAdapter(adapter);
 
                                         swipeRefreshLayout.setRefreshing(false);

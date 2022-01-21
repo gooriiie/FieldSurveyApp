@@ -39,6 +39,8 @@ public class MainActivity5 extends AppCompatActivity {
         String nickName = intent.getStringExtra("nickName");
 
         TextView tv11 = findViewById(R.id.textView11);
+        TextView tv16 = findViewById(R.id.textView16);
+        TextView tv17 = findViewById(R.id.textView17);
 
         tv11.setText(address);
 
@@ -56,36 +58,42 @@ public class MainActivity5 extends AppCompatActivity {
                                 for (String r : data.keySet()) {
                                     if (r.equals("닉네임")) {
                                         continue;
-                                    }
-                                    HashMap<String, Integer> room = (HashMap<String, Integer>) data.get(r);
+                                    } else if (r.equals("작성자")) {
+                                        tv16.setText((String) (data.get(r)));
+                                    } else if (r.equals("작성시간")) {
+                                        tv17.setText((String) (data.get(r)));
+                                    } else {
+                                        HashMap<String, Integer> room = (HashMap<String, Integer>) data.get(r);
 
-                                    TextView roomName = new TextView(getApplicationContext());
-                                    roomName.setText("✔ " + r);
-                                    roomName.setTextColor(Color.BLACK);
-                                    roomName.setTextSize(20);
-                                    roomName.setTypeface(null, Typeface.BOLD);
+                                        TextView roomName = new TextView(getApplicationContext());
+                                        roomName.setText("✔ " + r);
+                                        roomName.setTextColor(Color.BLACK);
+                                        roomName.setTextSize(20);
+                                        roomName.setTypeface(null, Typeface.BOLD);
 
-                                    LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
-                                            LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                                    param.leftMargin = 70;
-                                    param.topMargin = 40;
-
-                                    roomName.setLayoutParams(param);
-
-                                    detailView.addView(roomName);
-
-                                    for (Object material : room.keySet()) {
-                                        LinearLayout.LayoutParams param2 = new LinearLayout.LayoutParams(
+                                        LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
                                                 LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                                        param2.leftMargin = 90;
-                                        param2.topMargin = 30;
+                                        param.leftMargin = 70;
+                                        param.topMargin = 40;
 
-                                        TextView materialText = new TextView(getApplicationContext());
-                                        materialText.setText(material + " : " + String.valueOf(room.get(material)) + "개");
-                                        materialText.setTextSize(16);
-                                        materialText.setLayoutParams(param2);
-                                        detailView.addView(materialText);
+                                        roomName.setLayoutParams(param);
+
+                                        detailView.addView(roomName);
+
+                                        for (Object material : room.keySet()) {
+                                            LinearLayout.LayoutParams param2 = new LinearLayout.LayoutParams(
+                                                    LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                                            param2.leftMargin = 90;
+                                            param2.topMargin = 30;
+
+                                            TextView materialText = new TextView(getApplicationContext());
+                                            materialText.setText(material + " : " + String.valueOf(room.get(material)) + "개");
+                                            materialText.setTextSize(16);
+                                            materialText.setLayoutParams(param2);
+                                            detailView.addView(materialText);
+                                        }
                                     }
+
                                 }
                             }
                         }
