@@ -39,6 +39,8 @@ public class MainActivity7 extends AppCompatActivity {
         String nickName = intent.getStringExtra("nickName");
 
         TextView tv13 = findViewById(R.id.textView13);
+        TextView tv14 = findViewById(R.id.textView14);
+        TextView tv15 = findViewById(R.id.textView15);
 
         tv13.setText(address);
 
@@ -56,8 +58,12 @@ public class MainActivity7 extends AppCompatActivity {
                                 for (String r : data.keySet()) {
                                     if (r.equals("닉네임")) {
                                         continue;
-                                    }
-                                    HashMap<String, Integer> room = (HashMap<String, Integer>) data.get(r);
+                                    } else if (r.equals("작성자")) {
+                                        tv14.setText((String) (data.get(r)));
+                                    } else if (r.equals("작성시간")) {
+                                        tv15.setText((String) (data.get(r)));
+                                    } else {
+                                        HashMap<String, Integer> room = (HashMap<String, Integer>) data.get(r);
 
 //                                    TextView roomName = new TextView(getApplicationContext());
 //                                    roomName.setText("✔ " + r);
@@ -73,13 +79,16 @@ public class MainActivity7 extends AppCompatActivity {
 
 //                                    detailView.addView(roomName);
 
-                                    for (Object material : room.keySet()) {
-                                        if (resultSum.containsKey(material)) {
-                                            resultSum.put((String) material, resultSum.get(material) + Integer.parseInt(String.valueOf(room.get(material))));
-                                        } else {
-                                            resultSum.put((String) material, Integer.parseInt(String.valueOf(room.get(material))));
+                                        for (Object material : room.keySet()) {
+                                            if (resultSum.containsKey(material)) {
+                                                resultSum.put((String) material, resultSum.get(material) + Integer.parseInt(String.valueOf(room.get(material))));
+                                            } else {
+                                                resultSum.put((String) material, Integer.parseInt(String.valueOf(room.get(material))));
+                                            }
                                         }
                                     }
+
+
                                 }
                                 LinearLayout.LayoutParams param2 = new LinearLayout.LayoutParams(
                                         LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);

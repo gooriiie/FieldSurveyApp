@@ -25,13 +25,17 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.SetOptions;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,6 +45,10 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
     private Map<String, Integer> _switch;
     private Map<String, Integer> _socket;
     private Map<String, Integer> _sensor;
+    private FirebaseAuth auth;
+
+    String currentTime;
+    String writer;
 
     String getAddress;
     String getNickName;
@@ -91,6 +99,7 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_main4);
 
         db = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
 
         Intent intent = getIntent();
 
@@ -477,28 +486,51 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                 if (!ck) {
                     makeText(getApplicationContext(), "아무 수량이 없습니다.", Toast.LENGTH_SHORT).show();
                 } else {
-                    room.put(getRoom, part);
-                    room.put("닉네임", getNickName);
-
-                    db.collection("addresses").document(getAddress)
-                            .set(room, SetOptions.merge())
-                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    db.collection("users").document(auth.getCurrentUser().getUid())
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
-                                public void onSuccess(Void unused) {
-                                    makeText(getApplicationContext(), getRoom + "을 추가했습니다.", Toast.LENGTH_SHORT).show();
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        DocumentSnapshot document = task.getResult();
+                                        if (document.exists()) {
+                                            Map<String, Object> data = document.getData();
+                                            for (String r : data.keySet()) {
+                                                if (r.equals("이름")) {
+                                                    writer = (String) data.get(r);
+                                                    room.put(getRoom, part);
+                                                    room.put("닉네임", getNickName);
+                                                    room.put("작성자", writer);
 
-//                                intent activity3 추가
-//                                Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
-                                    Intent intent = new Intent(getApplicationContext(), SelectSpace.class);
-                                    intent.putExtra("address", getAddress);
-                                    intent.putExtra("nickName", getNickName);
-                                    startActivity(intent);
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    makeText(getApplicationContext(), "추가하는데 실패했습니다.", Toast.LENGTH_SHORT).show();
+                                                    long now = System.currentTimeMillis();
+                                                    Date date = new Date(now);
+                                                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                                                    currentTime = dateFormat.format(date);
+                                                    room.put("작성시간", currentTime);
+
+                                                    db.collection("addresses").document(getAddress)
+                                                            .set(room, SetOptions.merge())
+                                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                @Override
+                                                                public void onSuccess(Void unused) {
+                                                                    makeText(getApplicationContext(), getRoom + "을 추가했습니다.", Toast.LENGTH_SHORT).show();
+
+                                                                    Intent intent = new Intent(getApplicationContext(), SelectSpace.class);
+                                                                    intent.putExtra("address", getAddress);
+                                                                    intent.putExtra("nickName", getNickName);
+                                                                    startActivity(intent);
+                                                                }
+                                                            })
+                                                            .addOnFailureListener(new OnFailureListener() {
+                                                                @Override
+                                                                public void onFailure(@NonNull Exception e) {
+                                                                    makeText(getApplicationContext(), "추가하는데 실패했습니다.", Toast.LENGTH_SHORT).show();
+                                                                }
+                                                            });
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             });
                 }

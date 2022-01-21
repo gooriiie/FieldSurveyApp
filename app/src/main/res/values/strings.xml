@@ -2,6 +2,7 @@
     <string name="app_name">MyFirstApp</string>
     <string name="menu_list">프로젝트 목록</string>
     <string name="menu_detail">프로젝트 세부정보</string>
+    <string name="menu_info">프로젝트 정보</string>
     <string name="button_addspace">+ 프로젝트 추가</string>
     <string name="menu_addspace">프로젝트 추가</string>
     <string name="select_address">주소를 선택해주세요.</string>
