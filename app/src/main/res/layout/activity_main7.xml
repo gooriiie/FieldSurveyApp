@@ -7,38 +7,42 @@
     android:orientation="vertical"
     tools:context=".MainActivity7">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:paddingLeft="30dp"
-        android:paddingRight="20dp">
+    <include
+        layout="@layout/toolbar"
+        android:id="@+id/toolbar_main7" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="6"
-            android:includeFontPadding="false"
-            android:text="@string/menu_info"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:paddingLeft="30dp"-->
+<!--        android:paddingRight="20dp">-->
 
-        <!--        <ImageView-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="50dp"-->
-        <!--            android:layout_weight="5"-->
-        <!--            android:src="@drawable/img_spaceinfo"-->
-        <!--            android:layout_gravity="center_vertical"/>-->
+<!--        <TextView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:layout_weight="6"-->
+<!--            android:includeFontPadding="false"-->
+<!--            android:text="@string/menu_info"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="25sp"-->
+<!--            android:textStyle="bold" />-->
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"></LinearLayout>
-    </LinearLayout>
+<!--        &lt;!&ndash;        <ImageView&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_width="0dp"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_height="50dp"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_weight="5"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:src="@drawable/img_spaceinfo"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_gravity="center_vertical"/>&ndash;&gt;-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="4"></LinearLayout>-->
+<!--    </LinearLayout>-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,9 +57,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/ic_baseline_location_on_24"
+            android:drawablePadding="10dp"
             android:includeFontPadding="false"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="15sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,21 +70,26 @@
 
             <TextView
                 android:id="@+id/textView14"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="5"
                 android:layout_marginLeft="30dp"
-                android:layout_marginRight="10dp"
-                android:drawableLeft="@drawable/ic_baseline_person_24"
+                android:drawableLeft="@drawable/ic_baseline_person_outline_24"
                 android:drawablePadding="10dp"
+                android:textColor="@color/black"
                 android:includeFontPadding="false"
                 android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/textView15"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:drawableLeft="@drawable/ic_baseline_access_time_24"
+                android:drawablePadding="10dp"
+                android:textColor="@color/black"
                 android:includeFontPadding="false"
-                android:textSize="14sp" />
+                android:textSize="15sp" />
         </LinearLayout>
 
         <View
