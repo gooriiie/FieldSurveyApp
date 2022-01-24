@@ -24,4 +24,13 @@
     <style name="noto_sans_Button" parent="android:Widget.Button">
         <item name="android:fontFamily">@font/noto_sans_kr_medium</item>
     </style>
+
+    <style name="Theme.MyFirstApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MyFirstApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MyFirstApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
