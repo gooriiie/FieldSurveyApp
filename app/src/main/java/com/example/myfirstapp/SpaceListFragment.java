@@ -29,6 +29,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -111,6 +112,8 @@ public class SpaceListFragment extends Fragment implements TextWatcher {
 
         adapter = new ItemAdapter(ctx, itemList);
 
+        List<Item> tmp = new ArrayList<>();
+
         // FireStore에서 주소 불러오기
         db.collection("addresses")
                 .get()
@@ -120,6 +123,7 @@ public class SpaceListFragment extends Fragment implements TextWatcher {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 String eachNickName = "";
+                                String date = "";
 
                                 Map<String, Object> data = document.getData();
                                 for (String r : data.keySet()) {
@@ -157,6 +161,7 @@ public class SpaceListFragment extends Fragment implements TextWatcher {
                                 if (task.isSuccessful()) {
                                     for (QueryDocumentSnapshot document : task.getResult()) {
                                         String eachNickName = "";
+                                        String date = "";
 
                                         Map<String, Object> data = document.getData();
                                         for (String r : data.keySet()) {

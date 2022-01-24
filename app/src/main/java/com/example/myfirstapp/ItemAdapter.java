@@ -94,7 +94,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> im
         };
     }
 
-
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tv_nickName;
         TextView tv_address;

@@ -114,7 +114,6 @@ public class MyPageFragment extends Fragment {
                     }
                 });
 
-
         Button btn_logout = myPageView.findViewById(R.id.button_logout);
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
