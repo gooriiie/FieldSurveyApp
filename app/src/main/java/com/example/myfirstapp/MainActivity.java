@@ -2,8 +2,14 @@ package com.example.myfirstapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.LinearLayout;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
@@ -18,12 +24,14 @@ public class MainActivity extends AppCompatActivity {
 
     SpaceListFragment spaceListFragment;
     MyPageFragment myPageFragment;
+    LinearLayout mainLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mainLayout = findViewById(R.id.mainLayout);
         spaceListFragment = new SpaceListFragment();
         myPageFragment = new MyPageFragment();
 
@@ -46,5 +54,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mainLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hideKeyboard();
+            }
+        });
+    }
+
+    void hideKeyboard() {
+        InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (this.getCurrentFocus() != null) {
+            inputManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
     }
 }

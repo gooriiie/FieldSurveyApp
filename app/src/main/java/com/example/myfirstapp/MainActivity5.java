@@ -43,7 +43,7 @@ public class MainActivity5 extends AppCompatActivity {
         Toolbar toolbar_main5 = findViewById(R.id.toolbar_main5);
 
         setSupportActionBar(toolbar_main5);
-        getSupportActionBar().setTitle(R.string.menu_info);
+        getSupportActionBar().setTitle(R.string.menu_detail);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         detailView = findViewById(R.id.detailView);
