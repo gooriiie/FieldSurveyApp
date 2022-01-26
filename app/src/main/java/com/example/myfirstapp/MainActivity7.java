@@ -74,8 +74,26 @@ public class MainActivity7 extends AppCompatActivity {
                                     if (r.equals("닉네임")) {
                                         continue;
                                     } else if (r.equals("작성자")) {
-                                        tv14.setText((String) (data.get(r)));
                                         writer = (String) (data.get(r));
+                                        db.collection("users").document(writer)
+                                                .get()
+                                                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                        if (task.isSuccessful()) {
+                                                            DocumentSnapshot document = task.getResult();
+                                                            if (document.exists()) {
+                                                                Map<String, Object> data = document.getData();
+                                                                for (String s : data.keySet()) {
+                                                                    if (s.equals("이름")) {
+                                                                        tv14.setText((String) (data.get(s)));
+                                                                        break;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                });
                                     } else if (r.equals("작성시간")) {
                                         tv15.setText((String) (data.get(r)));
                                     } else {
@@ -148,8 +166,26 @@ public class MainActivity7 extends AppCompatActivity {
                 finish();
                 break;
             case R.id.action_call:
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:01012345678"));
-                startActivity(intent);
+                db.collection("users").document(writer)
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    DocumentSnapshot document = task.getResult();
+                                    if (document.exists()) {
+                                        Map<String, Object> data = document.getData();
+                                        for (String s : data.keySet()) {
+                                            if (s.equals("휴대폰번호")) {
+                                                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + (String) (data.get(s))));
+                                                startActivity(intent);
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        });
                 break;
             case R.id.action_delete:
                 makeText(getApplicationContext(), "delete button", Toast.LENGTH_SHORT).show();
