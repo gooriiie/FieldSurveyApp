@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,6 +24,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -38,6 +41,8 @@ public class MyPageFragment extends Fragment {
     private FirebaseUser currentUser;
     private FirebaseAuth.AuthStateListener authStateListener;
 
+    ListView listView;
+    MyPageListAdapter adapter;
     TextView userInfoName, userInfoEmail;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -92,6 +97,10 @@ public class MyPageFragment extends Fragment {
 
         userInfoName = myPageView.findViewById(R.id.userInfoName);
         userInfoEmail = myPageView.findViewById(R.id.userInfoEmail);
+
+        listView = myPageView.findViewById(R.id.listView2);
+        adapter = new MyPageListAdapter();
+        listView.setAdapter(adapter);
 
         db.collection("users").document(currentUser.getUid())
                 .get()
