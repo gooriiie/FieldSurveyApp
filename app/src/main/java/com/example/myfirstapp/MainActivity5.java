@@ -3,9 +3,11 @@ package com.example.myfirstapp;
 import static android.widget.Toast.makeText;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -22,7 +24,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -32,13 +36,16 @@ import java.util.Map;
 public class MainActivity5 extends AppCompatActivity {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FirebaseAuth auth;
     LinearLayout detailView;
-    String writer;
+    String writer, address, nickName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main5);
+
+        auth = FirebaseAuth.getInstance();
 
         Toolbar toolbar_main5 = findViewById(R.id.toolbar_main5);
 
@@ -50,8 +57,8 @@ public class MainActivity5 extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        String address = intent.getStringExtra("address");
-        String nickName = intent.getStringExtra("nickName");
+        address = intent.getStringExtra("address");
+        nickName = intent.getStringExtra("nickName");
 
         TextView tv11 = findViewById(R.id.textView11);
         TextView tv16 = findViewById(R.id.textView16);
@@ -181,7 +188,42 @@ public class MainActivity5 extends AppCompatActivity {
                         });
                 break;
             case R.id.action_delete:
-                makeText(getApplicationContext(), "delete button", Toast.LENGTH_SHORT).show();
+                if (writer.equals(auth.getCurrentUser().getUid())) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity5.this);
+                    builder.setIcon(R.mipmap.ic_launcher);
+                    builder.setTitle("경고!");
+                    builder.setMessage("프로젝트를 삭제하시겠습니까?");
+                    builder.setPositiveButton("삭제", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            db.collection("addresses").document(address)
+                                    .delete()
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            makeText(getApplicationContext(), "삭제를 성공했습니다", Toast.LENGTH_SHORT).show();
+                                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                            startActivity(intent);
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            makeText(getApplicationContext(), "삭제를 실패했습니다", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                        }
+                    });
+                    builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    builder.show();
+                } else {
+                    makeText(getApplicationContext(), "삭제 권한이 없습니다", Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
         return super.onOptionsItemSelected(item);
