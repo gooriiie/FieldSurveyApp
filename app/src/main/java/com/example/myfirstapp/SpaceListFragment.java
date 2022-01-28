@@ -124,7 +124,6 @@ public class SpaceListFragment extends Fragment implements TextWatcher {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 String eachNickName = "";
-                                String date = "";
 
                                 Map<String, Object> data = document.getData();
                                 for (String r : data.keySet()) {

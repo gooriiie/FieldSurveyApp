@@ -32,7 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity7 extends AppCompatActivity {
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FirebaseFirestore db;
     private FirebaseAuth auth;
     LinearLayout sumView;
     Map<String, Integer> resultSum;
@@ -44,6 +44,7 @@ public class MainActivity7 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main7);
 
+        db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
 
         Toolbar toolbar_main7 = findViewById(R.id.toolbar_main7);

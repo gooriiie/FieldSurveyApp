@@ -34,7 +34,7 @@ public class ChangePassword2 extends AppCompatActivity {
     LinearLayout changePasswordLayout2;
     Button btn_completeChangePassword;
     TextInputEditText editTextNewPassword;
-    String newPassword, email;
+    String newPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

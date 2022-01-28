@@ -138,8 +138,8 @@ public class MyPageFragment extends Fragment {
                         startActivity(intent);
                         break;
                     case "내 프로젝트":
-//                        Intent intent2 = new Intent(ctx, );
-//                        startActivity(intent2);
+                        Intent intent2 = new Intent(ctx, MyProjectList.class);
+                        startActivity(intent2);
                         break;
                 }
 
