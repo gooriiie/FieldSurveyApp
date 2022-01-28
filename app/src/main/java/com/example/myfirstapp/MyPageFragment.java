@@ -1,5 +1,7 @@
 package com.example.myfirstapp;
 
+import static android.widget.Toast.makeText;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -13,9 +15,11 @@ import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -122,6 +126,26 @@ public class MyPageFragment extends Fragment {
                         }
                     }
                 });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String func = ((listItem)adapter.getItem(i)).getName();
+
+                switch (func) {
+                    case "비밀번호 변경":
+                        Intent intent = new Intent(ctx, ChangePassword.class);
+                        startActivity(intent);
+                        break;
+                    case "내 프로젝트":
+//                        Intent intent2 = new Intent(ctx, );
+//                        startActivity(intent2);
+                        break;
+                }
+
+
+            }
+        });
 
         Button btn_logout = myPageView.findViewById(R.id.button_logout);
 
