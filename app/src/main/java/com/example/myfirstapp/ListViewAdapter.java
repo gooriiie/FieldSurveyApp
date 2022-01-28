@@ -79,14 +79,7 @@ public class ListViewAdapter extends BaseAdapter {
 
         SpaceItem spaceItem = itemList.get(i);
 
-//        if (visibleItemList.contains(spaceItem.getName())) {
-//            img.setVisibility(View.VISIBLE);
-//        } else {
-//            img.setVisibility(View.INVISIBLE);
-//        }
-
         boolean ck = false;
-
         for (String vi : visibleItemList) {
             if (vi.contains(spaceItem.getName())) {
                 img.setVisibility(View.VISIBLE);

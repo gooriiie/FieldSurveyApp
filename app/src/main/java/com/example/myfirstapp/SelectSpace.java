@@ -78,14 +78,7 @@ public class SelectSpace extends AppCompatActivity {
                                     if (r.equals("닉네임")) {
                                         continue;
                                     }
-
                                     boolean ch = false;
-//                                    if (spaces.contains(r)) {
-//                                        visibleSpace.add(r);
-//                                    } else {
-//                                        invisibleSpace.add(r);
-//                                    }
-
                                     for (String sp : spaces) {
                                         if (r.contains(sp)) {
                                             visibleSpace.add(r);

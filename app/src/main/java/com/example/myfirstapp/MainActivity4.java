@@ -526,6 +526,7 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                 ad.setTitle("입력");
 
                 final EditText et = new EditText(MainActivity4.this);
+                et.setPadding(40, 0, 0, 20);
                 ad.setView(et);
 
                 ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
@@ -540,6 +541,7 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                             String tmp = "(" + switchCorp + ") " + key;
                             if (value > 0) {
                                 part2.put(tmp, value);
+                                ck = true;
                             } else if (value == 0) {
                                 part2.put(tmp, FieldValue.delete());
                             }
@@ -548,56 +550,72 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                         _socket.forEach((key, value) -> {
                             if (value > 0) {
                                 part2.put(key, value);
+                                ck = true;
                             } else if (value == 0) {
                                 part2.put(key, FieldValue.delete());
                             }
                         });
 
-//                        db.collection("addresses").document(getAddress)
-//                                .get()
-//                                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//                                    @Override
-//                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                                        if (task.isSuccessful()) {
-//                                            DocumentSnapshot document = task.getResult();
-//                                            if (document.exists()) {
-//                                                Map<String, Object> data = document.getData();
-//                                                for (String r : data.keySet()) {
-//                                                    if (getRoom.contains(r)) {
-//
-//                                                    }
-//                                                }
-//                                            }
-//                                        }
-//                                    }
-//                                });
-
-
                         room2.put(getRoom, part2);
                         room2.put("닉네임", getNickName);
 
-                        db.collection("addresses").document(getAddress)
-                                .set(room2, SetOptions.merge())
-                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void unused) {
-                                        makeText(getApplicationContext(), getRoom + "을 추가했습니다.", Toast.LENGTH_SHORT).show();
+                        if (!ck) {
+                            makeText(getApplicationContext(), "아무 수량이 없습니다.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            writer = auth.getCurrentUser().getUid();
+                            room2.put(getRoom, part2);
+                            room2.put("닉네임", getNickName);
+                            room2.put("작성자", writer);
 
-//                                intent activity3 추가
-//                                Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
-                                        Intent intent = new Intent(getApplicationContext(), SelectSpace.class);
-                                        intent.putExtra("address", getAddress);
-                                        intent.putExtra("nickName", getNickName);
-                                        startActivity(intent);
-                                    }
-                                })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        makeText(getApplicationContext(), "추가하는데 실패했습니다.", Toast.LENGTH_SHORT).show();
-                                    }
-                                });
-                        dialogInterface.dismiss();
+                            long now = System.currentTimeMillis();
+                            Date date = new Date(now);
+                            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                            currentTime = dateFormat.format(date);
+                            room2.put("작성시간", currentTime);
+
+                            db.collection("addresses").document(getAddress)
+                                    .set(room2, SetOptions.merge())
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            makeText(getApplicationContext(), getRoom + "을 추가했습니다.", Toast.LENGTH_SHORT).show();
+
+                                            Intent intent = new Intent(getApplicationContext(), SelectSpace.class);
+                                            intent.putExtra("address", getAddress);
+                                            intent.putExtra("nickName", getNickName);
+                                            startActivity(intent);
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            makeText(getApplicationContext(), "추가하는데 실패했습니다.", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                            dialogInterface.dismiss();
+                        }
+
+//
+//                        db.collection("addresses").document(getAddress)
+//                                .set(room2, SetOptions.merge())
+//                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                    @Override
+//                                    public void onSuccess(Void unused) {
+//                                        makeText(getApplicationContext(), getRoom + "을 추가했습니다.", Toast.LENGTH_SHORT).show();
+//
+//                                        Intent intent = new Intent(getApplicationContext(), SelectSpace.class);
+//                                        intent.putExtra("address", getAddress);
+//                                        intent.putExtra("nickName", getNickName);
+//                                        startActivity(intent);
+//                                    }
+//                                })
+//                                .addOnFailureListener(new OnFailureListener() {
+//                                    @Override
+//                                    public void onFailure(@NonNull Exception e) {
+//                                        makeText(getApplicationContext(), "추가하는데 실패했습니다.", Toast.LENGTH_SHORT).show();
+//                                    }
+//                                });
+//                        dialogInterface.dismiss();
                     }
                 });
 
