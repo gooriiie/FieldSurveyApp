@@ -459,7 +459,10 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                 sv.scrollTo(0, 1450);
                 break;
 
-            // 추가하기 버튼 눌렀을 경우
+            /**
+             * 추가하기 버튼 눌렀을 경우
+             * 디비에 저장하는 부분 있음
+             */
             case R.id.button_add:
                 Map<String, Object> room = new HashMap<>();
                 Map<String, Object> part = new HashMap<>();
@@ -519,6 +522,10 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                 }
                 break;
 
+            /**
+             * 추가하기 버튼 눌렀을 경우
+             * 디비에 저장하는 부분 있음
+             */
             case R.id.button_add_withOtherName:
                 AlertDialog.Builder ad = new AlertDialog.Builder(MainActivity4.this);
                 ad.setIcon(R.mipmap.ic_launcher);
@@ -594,27 +601,6 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                             dialogInterface.dismiss();
                         }
 
-//
-//                        db.collection("addresses").document(getAddress)
-//                                .set(room2, SetOptions.merge())
-//                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                    @Override
-//                                    public void onSuccess(Void unused) {
-//                                        makeText(getApplicationContext(), getRoom + "을 추가했습니다.", Toast.LENGTH_SHORT).show();
-//
-//                                        Intent intent = new Intent(getApplicationContext(), SelectSpace.class);
-//                                        intent.putExtra("address", getAddress);
-//                                        intent.putExtra("nickName", getNickName);
-//                                        startActivity(intent);
-//                                    }
-//                                })
-//                                .addOnFailureListener(new OnFailureListener() {
-//                                    @Override
-//                                    public void onFailure(@NonNull Exception e) {
-//                                        makeText(getApplicationContext(), "추가하는데 실패했습니다.", Toast.LENGTH_SHORT).show();
-//                                    }
-//                                });
-//                        dialogInterface.dismiss();
                     }
                 });
 

@@ -68,6 +68,10 @@ public class MainActivity5 extends AppCompatActivity {
 
         Button btn_correct = findViewById(R.id.button_correct);
 
+        /**
+         * 디비에서 프로젝트 상세정보 조회
+         * 클라우드로 변경시 수정필요
+         */
         db.collection("addresses").document(address)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -165,6 +169,10 @@ public class MainActivity5 extends AppCompatActivity {
             case android.R.id.home:
                 finish();
                 break;
+            /**
+             * 전화 연결 기능(기능 사용하지 않을수도 있음)
+             * 클라우드로 변경시 수정필요
+             */
             case R.id.action_call:
                 db.collection("users").document(writer)
                         .get()
@@ -187,6 +195,10 @@ public class MainActivity5 extends AppCompatActivity {
                             }
                         });
                 break;
+            /**
+             * 디비에서 프로젝트 삭제
+             * 클라우드로 변경시 수정필요
+             */
             case R.id.action_delete:
                 if (writer.equals(auth.getCurrentUser().getUid())) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity5.this);

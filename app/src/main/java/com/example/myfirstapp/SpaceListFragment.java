@@ -115,7 +115,10 @@ public class SpaceListFragment extends Fragment implements TextWatcher {
 
         List<Item> tmp = new ArrayList<>();
 
-        // FireStore에서 주소 불러오기
+        /**
+         * 디비에서 프로젝트 목록 조회하기
+         * 클라우드로 변경시 수정필요
+         */
         db.collection("addresses")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -149,6 +152,11 @@ public class SpaceListFragment extends Fragment implements TextWatcher {
             }
         });
 
+        /**
+         * Pull to Refresh
+         * 새로고침을 하기 위해서 디비에서 목록 조회하기
+         * 클라우드로 변경시 수정필요
+         */
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -184,11 +192,9 @@ public class SpaceListFragment extends Fragment implements TextWatcher {
             }
         });
 
-        // Inflate the layout for this fragment
         return mainView;
     }
 
-    //
     @Override
     public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 

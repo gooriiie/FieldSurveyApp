@@ -70,21 +70,29 @@ public class Signup3 extends AppCompatActivity {
             }
         });
 
-        // 인증 요청 버튼 클릭
+        /**
+         * 전화번호 인증번호 전송
+         * 전화번호를 입력하면 해당 번호로 인증번호 전송 구현해야함
+         */
         btn_certificationRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (isValidPhoneNumber(editTextPhoneNumber.getText().toString())) {
-                    // 휴대폰 인증 과정
                     phoneNumber = editTextPhoneNumber.getText().toString().trim();
+                    // 인증번호 전송 과정 필요
+
                 } else {
                     makeText(getApplicationContext(), "휴대폰번호 형식에 맞지 않습니다", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        // 인증하기 버튼 클릭 (다음 화면으로 넘어감)
-        btn_certification.setOnClickListener(new View.OnClickListener() {
+        /**
+         * 인증완료
+         * 받은 인증번호가 일치하는지 확인 하는것 구현해야함
+         * 인증 번호가 일치하면 이메일과 비밀번호로 회원가입 후 디비에 회원저장
+         */
+       btn_certification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

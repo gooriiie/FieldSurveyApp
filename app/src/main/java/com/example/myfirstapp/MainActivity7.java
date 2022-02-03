@@ -70,6 +70,10 @@ public class MainActivity7 extends AppCompatActivity {
 
         Button btn_checkDetail = findViewById(R.id.button_checkDetail);
 
+        /**
+         * 디비에서 프로젝트 정보 조회하기
+         * 클라우드로 변경시 수정 필요
+         */
         db.collection("addresses").document(address)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -107,21 +111,6 @@ public class MainActivity7 extends AppCompatActivity {
                                         tv15.setText((String) (data.get(r)));
                                     } else {
                                         HashMap<String, Integer> room = (HashMap<String, Integer>) data.get(r);
-
-//                                    TextView roomName = new TextView(getApplicationContext());
-//                                    roomName.setText("✔ " + r);
-//                                    roomName.setTextSize(20);
-//                                    roomName.setTypeface(null, Typeface.BOLD);
-//
-//                                    LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
-//                                            LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-//                                    param.leftMargin = 70;
-//                                    param.topMargin = 40;
-
-//                                    roomName.setLayoutParams(param);
-
-//                                    detailView.addView(roomName);
-
                                         for (Object material : room.keySet()) {
                                             if (resultSum.containsKey(material)) {
                                                 resultSum.put((String) material, resultSum.get(material) + Integer.parseInt(String.valueOf(room.get(material))));
@@ -174,6 +163,10 @@ public class MainActivity7 extends AppCompatActivity {
             case android.R.id.home:
                 finish();
                 break;
+            /**
+             * 전화 연결 기능(기능 사용하지 않을수도 있음)
+             * 클라우드로 변경시 수정필요
+             */
             case R.id.action_call:
                 db.collection("users").document(writer)
                         .get()
@@ -196,6 +189,10 @@ public class MainActivity7 extends AppCompatActivity {
                             }
                         });
                 break;
+            /**
+             * 디비에서 프로젝트 삭제
+             * 클라우드로 변경시 수정필요
+             */
             case R.id.action_delete:
                 if (writer.equals(auth.getCurrentUser().getUid())) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity7.this);
