@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.firstTab:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, spaceListFragment).commit();
-
                         return true;
                     case R.id.secondTab:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, myPageFragment).commit();

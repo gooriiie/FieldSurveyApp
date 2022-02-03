@@ -176,7 +176,6 @@ public class SpaceListFragment extends Fragment implements TextWatcher {
                                         recyclerView.setAdapter(adapter);
 
                                         swipeRefreshLayout.setRefreshing(false);
-//                                        makeText(ctx.getApplicationContext(), "새로고침 완료", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }

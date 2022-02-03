@@ -546,7 +546,6 @@ public class MainActivity4 extends AppCompatActivity implements View.OnClickList
                                 part2.put(tmp, FieldValue.delete());
                             }
                         });
-
                         _socket.forEach((key, value) -> {
                             if (value > 0) {
                                 part2.put(key, value);
